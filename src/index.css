@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+  
+  body {
+    @apply bg-marca-light text-marca-textDark antialiased overflow-x-hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-marca-green text-white;
+  }
+}
+
+@layer components {
+  /* Architectural button styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-medium text-sm transition-all duration-300 ease-out bg-marca-green text-white shadow-marca-green hover:bg-marca-green-600 hover:shadow-lg active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-marca-green focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-medium text-sm transition-all duration-300 ease-out bg-transparent border border-white/20 text-white hover:bg-white/10 hover:border-white/40 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-marca-gold;
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-medium text-sm transition-all duration-300 ease-out bg-transparent border border-marca-dark/20 text-marca-dark hover:bg-marca-dark hover:text-white active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-marca-dark;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-medium text-sm transition-all duration-300 ease-out bg-marca-gold text-marca-dark font-semibold shadow-marca-gold hover:bg-marca-gold-light hover:shadow-lg active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-marca-gold focus:ring-offset-2;
+  }
+
+  /* Architectural badge */
+  .badge-editorial {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-marca-green-50 text-marca-green-700 border border-marca-green-200;
+  }
+
+  .badge-editorial-dark {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-marca-gold border border-marca-gold/30 backdrop-blur-sm;
+  }
+
+  /* Card styling with subtle architectural borders */
+  .card-architectural {
+    @apply bg-white rounded-xl border border-gray-100 shadow-marca transition-all duration-300 hover:shadow-marca-lg hover:border-marca-green/30;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f3f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd3c5;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6fa82a;
+}
