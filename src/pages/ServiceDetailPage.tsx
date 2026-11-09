@@ -56,7 +56,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
             {service.intro}
           </p>
 
-          <div className="mt-7 flex items-center justify-center gap-3">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
             <a
               href={whatsappInquiryUrl}
               target="_blank"
@@ -76,44 +76,70 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
         </div>
       </section>
 
-      {/* 2. Organized Technical Service Groups (Compact & Clean Hierarchy) */}
+      {/* 2. Subcategories Architectural Grid */}
       <section className="py-16 lg:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200 pb-4 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
             <div>
               <span className="text-[10px] uppercase tracking-widest text-marca-gold-dark font-bold block">
-                Technical Scope & Materials
+                Technical Divisions & Materials
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#11161C] tracking-tight">
-                Service Scope & Specifications
+                Subcategories & Material Specifications
               </h2>
             </div>
             <span className="text-xs text-gray-500">
-              {service.groups.length} technical {service.groups.length === 1 ? 'group' : 'groups'}
+              {service.groups.length} {service.groups.length === 1 ? 'division' : 'divisions'}
             </span>
           </div>
 
-          {/* Compact text lists with clean spacing */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Subcategory Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {service.groups.map((group, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-lg border border-gray-200/80 shadow-sm space-y-3.5"
+                className="group flex flex-col bg-white rounded-lg border border-gray-200/90 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300"
               >
-                <h3 className="text-sm font-bold text-[#11161C] pb-2 border-b border-gray-100 uppercase tracking-wide">
-                  {group.name}
-                </h3>
-                <ul className="space-y-2">
-                  {group.items.map((item, itemIdx) => (
-                    <li
-                      key={itemIdx}
-                      className="text-xs sm:text-sm text-gray-700 leading-relaxed flex items-start gap-2"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-marca-green flex-shrink-0 mt-2"></span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Object-focused photograph with subtle hover zoom */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                  <img
+                    src={group.image}
+                    alt={group.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none opacity-40 group-hover:opacity-20 transition-opacity"></div>
+                </div>
+
+                {/* Subcategory Details */}
+                <div className="p-6 flex flex-col flex-1 justify-between space-y-4">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-[#11161C] tracking-tight group-hover:text-marca-gold-dark transition-colors">
+                      {group.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mt-2">
+                      {group.description}
+                    </p>
+                  </div>
+
+                  {/* Specifications & Materials List */}
+                  <div className="pt-4 border-t border-gray-100">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-2.5">
+                      Specifications & Materials
+                    </span>
+                    <ul className="space-y-1.5">
+                      {group.items.map((item, itemIdx) => (
+                        <li
+                          key={itemIdx}
+                          className="text-xs text-gray-700 leading-snug flex items-start gap-2"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-marca-green flex-shrink-0 mt-1.5"></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
