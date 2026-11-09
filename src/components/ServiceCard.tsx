@@ -1,75 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { ServiceItem } from '../data/services';
+import { ArrowRight } from 'lucide-react';
+import { ServiceCategory } from '../data/services';
 
 interface ServiceCardProps {
-  service: ServiceItem;
+  service: ServiceCategory;
+  index?: number;
 }
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
+export const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
   return (
-    <div className="card-architectural overflow-hidden flex flex-col group h-full">
+    <Link
+      to={`/services/${service.slug}`}
+      className="card-architectural overflow-hidden flex flex-col group h-full bg-white transition-all duration-300 hover:-translate-y-1"
+    >
       {/* Service Image Header */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
         <img
-          src={service.image}
+          src={service.heroImage}
           alt={service.title}
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-marca-dark/70 via-transparent to-transparent"></div>
-        
-        {/* Category tag */}
-        <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-marca-dark/85 backdrop-blur-md text-marca-gold border border-white/10">
-          {service.category}
-        </span>
+        <div className="absolute inset-0 bg-gradient-to-t from-marca-dark/80 via-transparent to-transparent"></div>
+
+        {/* Index indicator */}
+        {index !== undefined && (
+          <span className="absolute top-4 left-4 px-2.5 py-1 rounded text-[11px] font-mono font-bold bg-marca-dark/80 backdrop-blur-md text-marca-gold border border-white/10">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        )}
+
+        <div className="absolute bottom-3 left-4 right-4">
+          <span className="text-xs font-semibold text-marca-green uppercase tracking-wider block">
+            Marca Construction Trade
+          </span>
+        </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
-        <div className="space-y-2.5">
+      <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+        <div className="space-y-2">
           <h3 className="text-xl font-bold text-marca-textDark group-hover:text-marca-green-600 transition-colors">
             {service.title}
           </h3>
-          <p className="text-xs font-medium text-marca-gold-dark italic">
+          <p className="text-xs text-marca-textMuted leading-relaxed line-clamp-2">
             {service.tagline}
           </p>
-          <p className="text-sm text-marca-textMuted leading-relaxed">
-            {service.description}
-          </p>
-
-          {/* Deliverables checklist */}
-          <div className="pt-3 border-t border-gray-100 space-y-2">
-            <span className="block text-xs uppercase tracking-wider font-semibold text-gray-500">
-              Key Inclusions:
-            </span>
-            <ul className="space-y-1.5">
-              {service.deliverables.slice(0, 3).map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs text-gray-600">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-marca-green flex-shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Action Link */}
-        <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-          <span className="text-xs font-semibold text-gray-400">
-            Targeted for: <span className="text-gray-700 font-normal">{service.idealFor}</span>
-          </span>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-marca-dark hover:text-marca-green group-hover:translate-x-1 transition-all"
-          >
-            <span>Enquire</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+        <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-marca-dark group-hover:text-marca-green">
+          <span>View Specifications</span>
+          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
-

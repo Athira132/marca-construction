@@ -9,6 +9,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { ServicesPage } from './pages/ServicesPage';
+import { ServiceDetailPage } from './pages/ServiceDetailPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { ContactPage } from './pages/ContactPage';
 
@@ -23,9 +24,42 @@ export const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            
+            {/* Services Index */}
             <Route path="/services" element={<ServicesPage />} />
+            
+            {/* 6 Dedicated Service Pages */}
+            <Route
+              path="/services/interior-works"
+              element={<ServiceDetailPage categorySlug="interior-works" />}
+            />
+            <Route
+              path="/services/plumbing-works"
+              element={<ServiceDetailPage categorySlug="plumbing-works" />}
+            />
+            <Route
+              path="/services/painting-works"
+              element={<ServiceDetailPage categorySlug="painting-works" />}
+            />
+            <Route
+              path="/services/solar-systems"
+              element={<ServiceDetailPage categorySlug="solar-systems" />}
+            />
+            <Route
+              path="/services/custom-furniture-epoxy-works"
+              element={<ServiceDetailPage categorySlug="custom-furniture-epoxy-works" />}
+            />
+            <Route
+              path="/services/electrical-works"
+              element={<ServiceDetailPage categorySlug="electrical-works" />}
+            />
+
+            {/* Dynamic slug route fallback for services */}
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/contact" element={<ContactPage />} />
+
             {/* Fallback to Home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
@@ -39,4 +73,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-

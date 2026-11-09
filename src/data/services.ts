@@ -1,132 +1,266 @@
 /**
- * MARCA CONSTRUCTION - Services Catalog
+ * MARCA CONSTRUCTION - Official Services Catalog
  * 
- * EDIT THIS FILE to add, modify, or remove service offerings.
- * These are structured as clear, editable placeholder service categories
- * tailored for residential and small business construction in Kerala.
+ * Source of truth for all 6 dedicated service categories.
+ * Wording is kept minimal, classy, professional, and free of duplicates.
  */
 
-export interface ServiceItem {
-  id: string;
-  title: string;
-  tagline: string;
-  category: 'Residential' | 'Commercial' | 'Renovation' | 'Turnkey & Design';
-  description: string;
-  detailedDescription: string;
-  image: string;
-  deliverables: string[];
-  idealFor: string;
-  featured: boolean;
+export interface ServiceSubGroup {
+  name: string;
+  items: string[];
 }
 
-export const servicesData: ServiceItem[] = [
+export interface ServiceCategory {
+  id: string;
+  slug: string;
+  title: string;
+  tagline: string;
+  intro: string;
+  heroImage: string;
+  groups: ServiceSubGroup[];
+}
+
+export const servicesData: ServiceCategory[] = [
   {
-    id: 'residential-villas',
-    title: 'Custom Residential Villas & Homes',
-    tagline: 'Modern tropical architecture tailored to Kerala living',
-    category: 'Residential',
-    description: 'Complete end-to-end design and construction of contemporary Kerala houses, luxury villas, and family homes with climate-responsive design.',
-    detailedDescription: 'Our residential construction combines modern aesthetics with Kerala\'s unique tropical weather needs. We prioritize natural airflow, high thermal comfort, rain-protected overhangs, and elegant indoor-outdoor living spaces.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-    deliverables: [
-      'Comprehensive architectural & structural planning',
-      'Foundation & RCC framed structure execution',
-      'Monsoon-resistant weatherproofing & waterproofing',
-      'Premium electrical, plumbing & sanitary installations',
-      'Flooring, painting, and external facade finishing',
+    id: 'interior-works',
+    slug: 'interior-works',
+    title: 'Interior Works',
+    tagline: 'Precision structural joinery, surfaces & architectural interior execution',
+    intro: 'Comprehensive interior solutions encompassing certified structural boards, premium surface finishing, false ceilings, countertops, hardware, and bespoke architectural detailing.',
+    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80',
+    groups: [
+      {
+        name: 'A. Carcass & Structural Boards',
+        items: [
+          'BWP / Marine Plywood (IS 710)',
+          'BWR / Commercial Grade Plywood (IS 303)',
+          'WPC / PVC Form Board',
+          'MDF / HDF',
+          'Particle Board',
+        ],
+      },
+      {
+        name: 'B. Surface Finishing',
+        items: [
+          'Laminates / Mica',
+          'Acrylic Sheets',
+          'PU Polish / Doco',
+          'Wood Veneer',
+          'Louvers / Charcoal / Fluted Panels',
+        ],
+      },
+      {
+        name: 'C. False Ceiling & Partitions',
+        items: [
+          'Gypsum Board',
+          'Grid Ceiling / Armstrong',
+          'Fibre Cement Board',
+          'POP',
+        ],
+      },
+      {
+        name: 'D. Kitchen & Vanity Countertops',
+        items: [
+          'Granite',
+          'Quartz',
+          'Nano White',
+          'Solid Surface / Corian / Acrylic',
+        ],
+      },
+      {
+        name: 'E. Hardware & Accessories',
+        items: [
+          'Hinges',
+          'Drawer Channels',
+          'Lift-up Systems',
+        ],
+      },
+      {
+        name: 'F. Glass & Metal Works',
+        items: [
+          'Toughened Glass',
+          'Metal Inlay Strips',
+        ],
+      },
     ],
-    idealFor: 'Homeowners looking for modern, bespoke living spaces in Kerala',
-    featured: true,
   },
   {
-    id: 'commercial-spaces',
-    title: 'Small Business & Commercial Construction',
-    tagline: 'Functional, aesthetic spaces built for business growth',
-    category: 'Commercial',
-    description: 'Turnkey construction of boutique commercial properties, offices, retail outlets, clinics, and hospitality spaces across Kerala.',
-    detailedDescription: 'We build commercial environments that reflect brand professionalism while maximizing usable floor space, customer flow, and durable low-maintenance operations.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-    deliverables: [
-      'Commercial zoning compliance & structural drafting',
-      'High-traffic durable materials & facade branding',
-      'Energy-efficient lighting & HVAC ducting integration',
-      'Fast-track scheduling to minimize downtime',
-      'Statutory panchayat/municipal clearance support',
+    id: 'plumbing-works',
+    slug: 'plumbing-works',
+    title: 'Plumbing Works',
+    tagline: 'Reliable water supply, wastewater drainage & departmental plumbing',
+    intro: 'Complete sanitary engineering, underground trenching, and certified piping systems for residential houses, commercial buildings, and government PWD projects.',
+    heroImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80',
+    groups: [
+      {
+        name: 'Project Sectors',
+        items: [
+          'Residential, flats, buildings and commercial plumbing',
+          'Government / PWD and departmental works',
+        ],
+      },
+      {
+        name: 'Water Supply Piping',
+        items: [
+          'UPVC piping systems',
+          'CPVC high-temperature piping',
+          'PPR hot & cold water piping',
+        ],
+      },
+      {
+        name: 'Drainage & Wastewater Systems',
+        items: [
+          'PVC / SWR pipes for soil, waste and rainwater drainage',
+        ],
+      },
+      {
+        name: 'Underground & Heavy Piping',
+        items: [
+          'HDPE underground piping & trenching',
+        ],
+      },
+      {
+        name: 'Installation & Sanitary Fittings',
+        items: [
+          'Precision plumbing installation, sanitaryware & fixture fittings',
+        ],
+      },
     ],
-    idealFor: 'Retailers, medical professionals, startups, and commercial landlords',
-    featured: true,
   },
   {
-    id: 'renovation-remodelling',
-    title: 'Structural Renovation & Remodelling',
-    tagline: 'Transforming existing buildings into contemporary spaces',
-    category: 'Renovation',
-    description: 'Upgrading older properties, ancestral homes, and commercial units with modern structural reinforcement and refreshed contemporary aesthetics.',
-    detailedDescription: 'Breathe new life into aging Kerala properties. We evaluate foundational integrity, open up partitioned layouts for modern light and ventilation, and upgrade electrical and plumbing systems without sacrificing character.',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
-    deliverables: [
-      'Structural audit and load-bearing assessment',
-      'Floor additions and room extensions',
-      'Roof conversions and waterproofing replacement',
-      'Modern open-plan kitchen and bathroom upgrades',
-      'Exterior elevation modernizations and facade re-cladding',
+    id: 'painting-works',
+    slug: 'painting-works',
+    title: 'Painting Works',
+    tagline: 'Architectural interior, exterior damp-proofing & fine wood finishing',
+    intro: 'End-to-end surface preparation, moisture protection, and high-performance paint and polish applications engineered for Kerala’s climate.',
+    heroImage: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1600&q=80',
+    groups: [
+      {
+        name: 'A. Interior Painting',
+        items: [
+          'Surface preparation',
+          'Water primer',
+          'Wall putty',
+          'Interior primer',
+          'Tractor / Economy Emulsion',
+          'Premium Emulsion',
+          'Royale / Luxury / Sheen Emulsion',
+        ],
+      },
+      {
+        name: 'B. Exterior Painting',
+        items: [
+          'Wall cleaning',
+          'Crack filling',
+          'Damp-proof / Sealer coat',
+          'Exterior primer',
+          'Exterior emulsion',
+        ],
+      },
+      {
+        name: 'C. Wood & Metal Finishing',
+        items: [
+          'Metal: Epoxy primer, enamel paint, gloss or satin finish',
+          'Wood: Wood filler, sanding, sealer, PU / Melamine polish, wood primer and enamel painting',
+        ],
+      },
     ],
-    idealFor: 'Property owners wishing to modernize existing structures without full demolition',
-    featured: true,
   },
   {
-    id: 'interior-architecture',
-    title: 'Turnkey Interior Architecture & Finishing',
-    tagline: 'Refined craftsmanship, customized woodwork & spatial balance',
-    category: 'Turnkey & Design',
-    description: 'Custom interior execution including bespoke cabinetry, false ceilings, architectural lighting, and premium Kerala teak/hardwood finishing.',
-    detailedDescription: 'A seamless transition from exterior structure to interior warmth. We craft thoughtful interiors with curated materials, ergonomic storage, and warm ambient illumination designed for everyday serenity.',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80',
-    deliverables: [
-      'Custom modular kitchens & pantry storage',
-      'Wardrobes, TV consoles & architectural wood paneling',
-      'Layered mood lighting & acoustic false ceilings',
-      'Granite, marble, and vitrified tile installation',
-      'Complete painting & wall texture treatments',
+    id: 'solar-systems',
+    slug: 'solar-systems',
+    title: 'Solar Systems',
+    tagline: 'Clean solar power generation, thermal heating & agricultural pumping',
+    intro: 'Sustainable solar energy installations designed for energy independence, reduced utility costs, and reliable backup across Kerala.',
+    heroImage: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1600&q=80',
+    groups: [
+      {
+        name: 'Power Generation Systems',
+        items: [
+          'On-grid / Grid-tied systems',
+          'Off-grid systems with battery storage',
+          'Hybrid solar power systems',
+        ],
+      },
+      {
+        name: 'Solar Utilities & Infrastructure',
+        items: [
+          'Solar water heaters',
+          'Solar street lights',
+          'Solar water pumps for agriculture',
+        ],
+      },
     ],
-    idealFor: 'Homeowners and business owners desiring a polished, ready-to-move interior',
-    featured: true,
   },
   {
-    id: 'landscape-outdoor',
-    title: 'Landscape & Outdoor Living Spaces',
-    tagline: 'Connecting indoor comfort with lush Kerala nature',
-    category: 'Turnkey & Design',
-    description: 'Design and construction of tropical courtyards, veranda patios, driveways, boundary compound walls, and rainwater harvesting.',
-    detailedDescription: 'Kerala living thrives on outdoor integration. We craft serene courtyard water bodies, interlock/cobblestone driveways, exterior boundary perimeter treatments, and sustainable rainwater recharge facilities.',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-    deliverables: [
-      'Internal nadumuttam (central courtyard) landscape design',
-      'Compound walls, designer gates & security illumination',
-      'Permeable driveway paving & stormwater drainage',
-      'Lush tropical garden layout & outdoor seating decks',
-      'Rainwater harvesting storage tank execution',
+    id: 'custom-furniture-epoxy-works',
+    slug: 'custom-furniture-epoxy-works',
+    title: 'Custom Furniture & Epoxy Works',
+    tagline: 'Handcrafted live-edge timber, artistic epoxy resins & bespoke furniture',
+    intro: 'Artisan woodworking and contemporary epoxy resin craft, delivering bespoke focal furniture pieces for contemporary homes and modern commercial spaces.',
+    heroImage: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1600&q=80',
+    groups: [
+      {
+        name: 'Custom Furniture & Epoxy Works',
+        items: [
+          'Epoxy dining tables',
+          'Coffee tables',
+          'Desks and benches',
+          'Clocks',
+        ],
+      },
     ],
-    idealFor: 'Clients wanting harmonic landscaping and durable outdoor perimeters',
-    featured: false,
   },
   {
-    id: 'planning-approvals',
-    title: 'Architectural Planning & Engineering Approvals',
-    tagline: 'From blueprint conception to local authority sanctioning',
-    category: 'Turnkey & Design',
-    description: 'Detailed 2D/3D architectural floor plans, 3D photorealistic renderings, structural engineering vetting, and municipal permit processing.',
-    detailedDescription: 'Every great building begins with sound engineering. We assist clients with detailed floor plans, structural stability certificates, 3D exterior elevations, and documentation for Kerala municipal/panchayat approvals.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
-    deliverables: [
-      'Architectural 2D floor plans and working section drawings',
-      '3D photorealistic elevation renderings',
-      'Structural analysis and reinforcement schedules',
-      'Panchayat / Municipality building permit documentation',
-      'Bill of Quantities (BOQ) & itemized cost estimation',
+    id: 'electrical-works',
+    slug: 'electrical-works',
+    title: 'Electrical Works',
+    tagline: 'Residential, industrial power distribution, cabling & PWD departmental projects',
+    intro: 'Licensed electrical engineering solutions compliant with Kerala Electrical Inspectorate standards, spanning residential wiring, industrial control panels, HT/LT cabling, and backup generators.',
+    heroImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80',
+    groups: [
+      {
+        name: 'A. Residential & Commercial',
+        items: [
+          'Complete wiring for houses, villas, flats and apartments',
+          'Modular switchboards and lighting design',
+          'Distribution boards with MCB and RCCB protection',
+        ],
+      },
+      {
+        name: 'B. Industrial & Factory Electrical Solutions',
+        items: [
+          'Three-phase power distribution',
+          'APFC panel installation',
+          'MCC / PCC motor control panels',
+          'Electrical machinery connections',
+        ],
+      },
+      {
+        name: 'C. Cabling & Earthing',
+        items: [
+          'LT / HT underground cable laying, trenching and jointing',
+          'Cable tray routing, glanding and termination',
+          'Chemical / copper plate and pipe earthing',
+          'Lightning protection',
+        ],
+      },
+      {
+        name: 'D. Generator & Power Backup',
+        items: [
+          'Diesel generator supply, foundation and installation',
+          'AMF and changeover panels',
+          'Power backup synchronisation for commercial requirements',
+        ],
+      },
+      {
+        name: 'E. Government & PWD Projects',
+        items: [
+          'Departmental tender works including PWD, KSEB and Local Self Government departments, schools and hospitals',
+          'Execution following electrical inspectorate standards',
+          'Sketch preparation and testing',
+        ],
+      },
     ],
-    idealFor: 'Clients at the preliminary phase planning their construction budget',
-    featured: false,
   },
 ];
-

@@ -37,16 +37,14 @@ A premium, modern, and responsive website built for **MARCA CONSTRUCTION**, a Ke
    - Core Values (Integrity, Climate & Sustainability, Architectural Craft, Client Care).
    - Dedicated editable placeholder sections for Company History and Team / Leadership profiles (no fabricated history or false statistics).
 
-3. **Services (`/services`)**:
-   - Comprehensive grid of 6 core service categories:
-     - Custom Residential Villas & Homes
-     - Small Business & Commercial Spaces
-     - Structural Renovation & Remodelling
-     - Turnkey Interior Architecture & Finishing
-     - Landscape & Outdoor Living Spaces
-     - Architectural Planning & Engineering Approvals
-   - Structural assurance breakdown for Kerala's weather extremes.
-   - Frequently Asked Questions about Kerala residential construction.
+3. **Services (`/services`) & 6 Dedicated Trade Pages**:
+   - Navigation dropdown and individual dedicated pages:
+     1. **Interior Works** (`/services/interior-works`): Carcass & structural boards (BWP, BWR, WPC, MDF/HDF, Particle Board), surface finishing (Laminates, Acrylic, PU Polish, Veneer, Louvers), false ceilings, countertops, hardware, glass & metal works.
+     2. **Plumbing Works** (`/services/plumbing-works`): Residential & commercial plumbing, PWD & departmental works, UPVC/CPVC/PPR water supply, PVC/SWR drainage, HDPE underground piping, installation & fittings.
+     3. **Painting Works** (`/services/painting-works`): Interior painting (putty, primers, economy to luxury emulsions), exterior painting (cleaning, crack filling, damp-proofing), wood & metal finishing (epoxy primer, enamel, PU/melamine polish).
+     4. **Solar Systems** (`/services/solar-systems`): On-grid, off-grid with battery, hybrid systems, solar water heaters, solar street lights, agricultural solar pumps.
+     5. **Custom Furniture & Epoxy Works** (`/services/custom-furniture-epoxy-works`): Handcrafted epoxy dining tables, coffee tables, desks, benches, and clocks.
+     6. **Electrical Works** (`/services/electrical-works`): Residential & commercial wiring, industrial factory three-phase distribution, APFC panel installation, MCC/PCC panels, LT/HT underground cabling, chemical/plate earthing, diesel generator backup & AMF panels, PWD/KSEB departmental projects.
 
 4. **Gallery (`/gallery`)**:
    - Photography-focused architectural showcase.

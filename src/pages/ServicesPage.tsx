@@ -2,176 +2,96 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  HelpCircle,
+  ShieldCheck,
   Sparkles,
-  Layers,
-  ShieldAlert,
+  MessageCircle,
 } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { ServiceCard } from '../components/ServiceCard';
 import { servicesData } from '../data/services';
+import { companyData } from '../data/company';
 
 export const ServicesPage: React.FC = () => {
-  const faqs = [
-    {
-      q: 'Do you manage building permits and panchayat/municipality approvals in Kerala?',
-      a: 'Yes, we assist in preparing architectural drawings, structural stability certificates, and coordinating statutory paperwork required for local self-government (Panchayat / Municipality / Corporation) approvals.',
-    },
-    {
-      q: 'How do you safeguard houses against heavy Kerala monsoon rains?',
-      a: 'We integrate multi-tier waterproofing, strategic roof overhangs, sloping parapet coping, damp-proof courses (DPC), and advanced exterior moisture-resistant elastomeric coatings tailored for high-humidity coastal and high-rainfall zones.',
-    },
-    {
-      q: 'Do you offer turnkey construction or only labour contracts?',
-      a: 'We specialize in turnkey construction, covering everything from architectural planning, foundation, structural framework, and premium electrical/plumbing to interior carpentry and finishing. This guarantees single-point accountability and high material standards.',
-    },
-    {
-      q: 'Can you renovate older traditional Kerala homes without destroying their character?',
-      a: 'Absolutely. Our structural renovation team specializes in modernizing ancestral properties—reinforcing foundation support, adding skylights and open-concept layouts, while respecting classic woodwork and charm.',
-    },
-  ];
-
   return (
     <div className="bg-marca-light min-h-screen pt-24 pb-20">
       <SEO
-        title="Services | Comprehensive Kerala Construction & Architecture"
-        description="Explore Marca Construction's range of residential villas, commercial buildings, structural renovations, and turnkey interiors in Kerala."
+        title="Services | Comprehensive Kerala Construction & Trade Divisions"
+        description="Explore Marca Construction's 6 core service divisions: Interior Works, Plumbing, Painting, Solar Systems, Custom Furniture & Epoxy, and Electrical Works."
       />
 
       {/* Hero Banner */}
-      <section className="bg-marca-dark text-white py-16 lg:py-24 relative overflow-hidden">
+      <section className="bg-marca-dark text-white py-16 lg:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(196,166,97,0.12)_0%,transparent_60%)] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl space-y-4">
-            <span className="badge-editorial-dark">Construction Capabilities</span>
+            <span className="badge-editorial-dark inline-flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-marca-gold" />
+              <span>Dedicated Trade Divisions</span>
+            </span>
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              End-to-End Building & Architectural Solutions
+              Our Construction & Engineering Services
             </h1>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Designed for homeowners and small businesses across Kerala. All service categories below are cleanly structured and readily customizable as your verified service offerings evolve.
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              Marca Construction delivers specialized, high-standard execution across six core construction divisions in Kerala. Explore each category below for detailed material specifications and project scope.
             </p>
           </div>
         </div>
       </section>
 
       {/* Services Grid Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="badge-editorial">Our Service Portfolio</span>
+          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+            <span className="badge-editorial">6 Core Categories</span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-marca-textDark tracking-tight">
-              Engineered for Quality & Longevity
+              Select a Service Division
             </h2>
-            <p className="text-sm sm:text-base text-marca-textMuted">
-              Explore our core construction and architectural services, crafted with attention to Kerala’s regional craftsmanship and durability.
+            <p className="text-sm text-marca-textMuted">
+              Click any category below to view detailed material grades, technical groups, and scope of work.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesData.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+            {servicesData.map((service, index) => (
+              <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Quality Standards & Kerala Specifics */}
-      <section className="py-16 lg:py-24 bg-marca-slate text-white border-y border-white/10">
+      {/* Quality Assurance Minimal Banner */}
+      <section className="py-14 bg-marca-slate text-white border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <span className="badge-editorial-dark">Structural Assurance</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Built to Withstand Kerala’s Weather Extremes
-              </h2>
-              <p className="text-base text-gray-300 leading-relaxed">
-                Kerala’s geography is unique—high-velocity monsoons, high ground water tables, and scorching coastal humidity require rigorous engineering standards.
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-2 max-w-2xl">
+              <div className="flex items-center gap-2 text-marca-gold">
+                <ShieldCheck className="w-5 h-5 text-marca-green" />
+                <span className="text-xs uppercase tracking-wider font-semibold">Strict Quality Assurance</span>
+              </div>
+              <h3 className="text-2xl font-bold">Standardized Materials & Certified Execution</h3>
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                Whether executing residential interior joinery, heavy electrical substations, or rooftop solar arrays, all works follow certified Indian Standards (IS), PWD, and Kerala Electrical Inspectorate guidelines.
               </p>
-
-              <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
-                  <ShieldAlert className="w-5 h-5 text-marca-green flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm font-bold text-white">Foundation Soil Testing & Engineering</h4>
-                    <p className="text-xs text-gray-300 mt-0.5">
-                      Accurate bearing capacity calculation prevents settling and foundation cracks in clayey or coastal soils.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
-                  <Layers className="w-5 h-5 text-marca-gold flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm font-bold text-white">Certified Primary Steel & High-Grade Cement</h4>
-                    <p className="text-xs text-gray-300 mt-0.5">
-                      Corrosion-resistant FE 500/550D TMT bars and 53-grade OPC/PPC cement ensuring decades of structural security.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
-                  <Sparkles className="w-5 h-5 text-marca-green flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="text-sm font-bold text-white">Advanced Monsoon Weatherproofing</h4>
-                    <p className="text-xs text-gray-300 mt-0.5">
-                      Polymer-modified slurry membranes on all slab roofs, sunken toilets, and exterior boundary parapets.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                <img
-                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
-                  alt="Precision Construction by Marca Construction"
-                  className="w-full h-[440px] object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Frequently Asked Questions */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 space-y-3">
-            <span className="badge-editorial">Clear Answers</span>
-            <h2 className="text-3xl font-extrabold text-marca-textDark tracking-tight">
-              Frequently Asked Questions About Kerala Construction
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-marca-light border border-gray-200 space-y-2"
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+              <a
+                href={`https://wa.me/${companyData.whatsapp.number}?text=${encodeURIComponent(
+                  companyData.whatsapp.defaultMessage
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-semibold uppercase tracking-wider transition-all"
               >
-                <div className="flex items-start gap-3">
-                  <HelpCircle className="w-5 h-5 text-marca-green flex-shrink-0 mt-0.5" />
-                  <h3 className="text-base font-bold text-marca-textDark">{faq.q}</h3>
-                </div>
-                <p className="text-sm text-marca-textMuted pl-8 leading-relaxed">
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp Us</span>
+              </a>
 
-          {/* Direct Consultation Box */}
-          <div className="mt-12 p-8 rounded-2xl bg-marca-light border border-marca-green/30 text-center space-y-4">
-            <h3 className="text-xl font-bold text-marca-textDark">
-              Have a specific question regarding your project?
-            </h3>
-            <p className="text-sm text-marca-textMuted max-w-lg mx-auto">
-              Our engineering team is happy to review your plot measurements or architectural requirements without obligation.
-            </p>
-            <div className="pt-2">
-              <Link to="/contact" className="btn-primary">
-                <span>Ask Us Directly</span>
+              <Link
+                to="/contact"
+                className="btn-primary w-full sm:w-auto text-xs py-3 px-5 uppercase tracking-wider"
+              >
+                <span>Request Quotation</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

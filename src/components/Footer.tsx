@@ -119,13 +119,13 @@ export const Footer: React.FC = () => {
           {/* Services Column (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
             <h3 className="text-xs uppercase tracking-widest text-white font-bold border-l-2 border-marca-gold pl-2.5">
-              Construction Services
+              Service Divisions
             </h3>
-            <ul className="space-y-2.5 text-sm">
-              {servicesData.slice(0, 5).map((service) => (
+            <ul className="space-y-2 text-xs sm:text-sm">
+              {servicesData.map((service) => (
                 <li key={service.id}>
                   <Link
-                    to="/services"
+                    to={`/services/${service.slug}`}
                     className="text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
                     <ArrowRight className="w-3 h-3 text-marca-green transition-transform group-hover:translate-x-1" />

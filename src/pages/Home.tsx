@@ -24,7 +24,7 @@ import { companyData } from '../data/company';
 export const Home: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
-  const featuredServices = servicesData.filter((s) => s.featured).slice(0, 3);
+  const services = servicesData;
   const featuredProjects = projectsData.filter((p) => p.featured).slice(0, 3);
 
   return (
@@ -168,21 +168,21 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 4. Featured Services Section */}
-      <section className="py-20 lg:py-28 bg-marca-light border-t border-gray-200">
+      <section className="py-20 lg:py-24 bg-marca-light border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-16 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="space-y-3 max-w-xl">
               <div className="inline-flex items-center gap-2">
                 <span className="w-6 h-[2px] bg-marca-gold"></span>
                 <span className="text-xs uppercase font-bold tracking-widest text-marca-gold-dark">
-                  Comprehensive Capabilities
+                  Core Specializations
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-marca-textDark tracking-tight">
-                Our Core Construction Services
+                Our 6 Service Divisions
               </h2>
               <p className="text-sm sm:text-base text-marca-textMuted">
-                From initial architectural blueprints to final turnkey keys, we provide specialized construction services tailored to Kerala properties.
+                Dedicated trade divisions delivering high-standard execution across Kerala with transparent engineering.
               </p>
             </div>
 
@@ -190,14 +190,14 @@ export const Home: React.FC = () => {
               to="/services"
               className="inline-flex items-center gap-2 text-sm font-bold text-marca-green hover:text-marca-green-700 transition-colors self-start md:self-auto"
             >
-              <span>View All 6 Services</span>
+              <span>View All Divisions</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {services.map((service, idx) => (
+              <ServiceCard key={service.id} service={service} index={idx} />
             ))}
           </div>
         </div>
