@@ -131,3 +131,4 @@ export const projectsData: ProjectItem[] = [
     featured: false,
   },
 ];
+

@@ -72,3 +72,4 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     </div>
   );
 };
+

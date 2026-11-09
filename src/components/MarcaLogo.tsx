@@ -150,3 +150,4 @@ export const MarcaLogo: React.FC<MarcaLogoProps> = ({
 
   return logoContent;
 };
+

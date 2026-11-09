@@ -22,3 +22,4 @@ export const SEO: React.FC<SEOProps> = ({ title, description }) => {
 
   return null;
 };
+
