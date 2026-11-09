@@ -1,153 +1,198 @@
-import React, { useState, useMemo } from 'react';
-import { Sparkles, Info, Filter } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SEO } from '../components/SEO';
-import { ProjectCard } from '../components/ProjectCard';
-import { Lightbox } from '../components/Lightbox';
-import {
-  projectsData,
-  projectCategories,
-  ProjectCategory,
-  ProjectItem,
-} from '../data/projects';
+
+interface GalleryItem {
+  id: string;
+  title: string;
+  category: string;
+  image: string;
+}
+
+// Minimal, curated collection of realistic architectural photography (easy to replace with real photos)
+const galleryItems: GalleryItem[] = [
+  {
+    id: 'residence-01',
+    title: 'Contemporary Tropical Residence',
+    category: 'Architecture',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    id: 'interior-01',
+    title: 'Minimalist Interior & Joinery',
+    category: 'Interiors',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    id: 'residence-02',
+    title: 'Kerala Villa at Dusk',
+    category: 'Residential',
+    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    id: 'interior-02',
+    title: 'Living Room & Timber Accents',
+    category: 'Interiors',
+    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    id: 'commercial-01',
+    title: 'Commercial Suite & Facade',
+    category: 'Commercial',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    id: 'residence-03',
+    title: 'Tropical Courtyard & Pool',
+    category: 'Residential',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80',
+  },
+];
 
 export const GalleryPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
-  const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
 
-  const filteredProjects = useMemo(() => {
-    if (selectedCategory === 'All') return projectsData;
-    return projectsData.filter((p) => p.category === selectedCategory);
-  }, [selectedCategory]);
+  const activeItem = activeImageIndex !== null ? galleryItems[activeImageIndex] : null;
 
-  // Lightbox prev/next handlers
-  const currentIndex = activeProject
-    ? filteredProjects.findIndex((p) => p.id === activeProject.id)
-    : -1;
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setActiveProject(filteredProjects[currentIndex - 1]);
-    } else {
-      setActiveProject(filteredProjects[filteredProjects.length - 1]);
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (activeImageIndex !== null) {
+      setActiveImageIndex(
+        activeImageIndex === 0 ? galleryItems.length - 1 : activeImageIndex - 1
+      );
     }
   };
 
-  const handleNext = () => {
-    if (currentIndex < filteredProjects.length - 1) {
-      setActiveProject(filteredProjects[currentIndex + 1]);
-    } else {
-      setActiveProject(filteredProjects[0]);
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (activeImageIndex !== null) {
+      setActiveImageIndex(
+        activeImageIndex === galleryItems.length - 1 ? 0 : activeImageIndex + 1
+      );
     }
   };
 
   return (
-    <div className="bg-marca-light min-h-screen pt-24 pb-20">
+    <div className="bg-[#F8F9F5] min-h-screen">
       <SEO
-        title="Project Gallery | Architectural Showcase & Designs"
-        description="Explore Marca Construction's portfolio of contemporary Kerala residential villas, traditional-modern fusion houses, commercial hubs, and interior architecture."
+        title="Our Work | Marca Construction"
+        description="Visual portfolio of architectural, residential, interior, and commercial works by Marca Construction."
       />
 
-      {/* Hero Banner */}
-      <section className="bg-marca-dark text-white py-16 lg:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(111,168,42,0.12)_0%,transparent_60%)] pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl space-y-4">
-          <div className="badge-editorial-dark inline-flex">
-            <Sparkles className="w-3.5 h-3.5 text-marca-gold" />
-            <span>Curated Portfolio</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Architectural Project Gallery
+      {/* Full-Width Hero Banner */}
+      <section className="relative min-h-[50vh] sm:min-h-[55vh] flex items-center justify-center overflow-hidden bg-marca-dark">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=85')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-[#11161C]/95 via-[#11161C]/60 to-[#11161C]/40"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-marca-gold mb-3 inline-block">
+            Portfolio
+          </span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            Our Work
           </h1>
-          <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-            Discover our architectural perspectives, contemporary Kerala residences, tropical villa concepts, and commercial spaces. Click any project to inspect full-screen imagery and design specifications.
+          <p className="text-sm sm:text-base md:text-lg text-gray-200 font-normal max-w-md mx-auto leading-relaxed">
+            A visual selection of residential, interior, and commercial spaces.
           </p>
         </div>
       </section>
 
-      {/* Main Gallery Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Transparent Note on Showcase Imagery (Per User Instructions) */}
-        <div className="mb-10 p-4 sm:p-5 rounded-2xl bg-marca-gold-tint border border-marca-gold/30 flex items-start gap-3.5 text-xs text-marca-textDark">
-          <Info className="w-5 h-5 text-marca-gold-dark flex-shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <p className="font-bold text-marca-textDark">
-              Architectural Concept & Portfolio Notice:
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              These curated portfolio entries illustrate our spatial planning, modern tropical aesthetic, and structural possibilities across Kerala. Real-time site photographs and verified project documentation can be seamlessly added in <code className="bg-white/80 px-1 py-0.5 rounded font-mono text-[11px] text-marca-dark">src/data/projects.ts</code> as completed projects are finalized.
-            </p>
-          </div>
-        </div>
-
-        {/* Category Filters Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-gray-200">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-marca-textMuted">
-            <Filter className="w-4 h-4 text-marca-green" />
-            <span>Filter By Category:</span>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {projectCategories.map((cat) => {
-              const isActive = selectedCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-all duration-200 ${
-                    isActive
-                      ? 'bg-marca-green text-white shadow-marca-green'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Projects Counter */}
-        <div className="flex items-center justify-between text-xs text-marca-textMuted mb-6">
-          <span>
-            Showing <strong className="text-marca-textDark">{filteredProjects.length}</strong> {filteredProjects.length === 1 ? 'project' : 'projects'}
-          </span>
-          <span className="text-marca-gold-dark font-medium">Click any card to open architectural lightbox</span>
-        </div>
-
-        {/* Responsive Grid of Project Cards */}
-        {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onClick={(p) => setActiveProject(p)}
-              />
+      {/* Minimal Image Gallery (Few Photographs Only) */}
+      <section className="py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {galleryItems.map((item, index) => (
+              <div
+                key={item.id}
+                onClick={() => setActiveImageIndex(index)}
+                className="group relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 cursor-pointer border border-gray-200/80 shadow-sm"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="text-[10px] uppercase tracking-widest text-marca-gold font-bold block mb-0.5">
+                    {item.category}
+                  </span>
+                  <h3 className="text-sm sm:text-base font-bold text-white">
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
             ))}
           </div>
-        ) : (
-          <div className="text-center py-20 bg-white rounded-2xl border border-gray-200">
-            <p className="text-base text-gray-500">No projects found in this category.</p>
-            <button
-              onClick={() => setSelectedCategory('All')}
-              className="mt-4 btn-primary text-xs"
-            >
-              Reset Filters
-            </button>
-          </div>
-        )}
-      </div>
 
-      {/* Full-Screen Lightbox Modal */}
-      {activeProject && (
-        <Lightbox
-          project={activeProject}
-          onClose={() => setActiveProject(null)}
-          onPrev={handlePrev}
-          onNext={handleNext}
-        />
+          <div className="mt-12 text-center text-xs text-gray-500">
+            Note: Portfolio photography represents architectural aesthetics and is readily updatable with company site photos.
+          </div>
+        </div>
+      </section>
+
+      {/* Simple Image Lightbox */}
+      {activeItem && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setActiveImageIndex(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-6"
+        >
+          <button
+            onClick={() => setActiveImageIndex(null)}
+            className="absolute top-5 right-5 text-white/80 hover:text-white p-2"
+            aria-label="Close"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={handlePrev}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 bg-white/10 rounded-full"
+            aria-label="Previous"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 bg-white/10 rounded-full"
+            aria-label="Next"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-4xl max-h-[85vh] bg-[#11161C] rounded-lg overflow-hidden border border-white/10 flex flex-col"
+          >
+            <img
+              src={activeItem.image}
+              alt={activeItem.title}
+              className="max-h-[70vh] w-auto object-contain bg-black"
+            />
+            <div className="p-4 text-white flex items-center justify-between text-xs">
+              <div>
+                <span className="text-marca-gold uppercase font-bold text-[10px] block">
+                  {activeItem.category}
+                </span>
+                <p className="font-semibold text-sm">{activeItem.title}</p>
+              </div>
+              <span className="text-gray-400">
+                {(activeImageIndex ?? 0) + 1} / {galleryItems.length}
+              </span>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
 };
-

@@ -1,12 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import {
-  ArrowRight,
-  ChevronRight,
-  MessageCircle,
-  CheckCircle2,
-  Sparkles,
-} from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { servicesData, ServiceCategory } from '../data/services';
 import { companyData } from '../data/company';
@@ -34,166 +28,146 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
   )}`;
 
   return (
-    <div className="bg-marca-light min-h-screen pt-24 pb-20">
+    <div className="bg-[#F8F9F5] min-h-screen">
       <SEO
-        title={`${service.title} | Marca Construction Kerala`}
+        title={`${service.title} | Marca Construction`}
         description={service.intro}
       />
 
-      {/* Breadcrumb Header */}
-      <section className="bg-marca-dark text-white pt-10 pb-16 lg:pb-20 border-b border-white/10 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Breadcrumb links */}
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-gray-400 mb-6">
-            <Link to="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-500" />
-            <Link to="/services" className="hover:text-white transition-colors">
-              Services
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-marca-gold" />
-            <span className="text-white font-medium">{service.title}</span>
-          </nav>
-
-          <div className="max-w-3xl space-y-4">
-            <div className="badge-editorial-dark inline-flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-marca-gold" />
-              <span>Specialised Construction Division</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              {service.title}
-            </h1>
-
-            <p className="text-sm sm:text-base text-marca-gold-light font-medium italic">
-              {service.tagline}
-            </p>
-
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed pt-1">
-              {service.intro}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-        {/* ONE Strong, High-Quality Relevant Photograph */}
-        <div className="rounded-2xl overflow-hidden shadow-marca-lg border border-white/20 bg-marca-slate max-h-[480px]">
-          <img
-            src={service.heroImage}
-            alt={`${service.title} by Marca Construction`}
-            className="w-full h-[320px] sm:h-[420px] lg:h-[480px] object-cover object-center"
-            loading="eager"
-          />
+      {/* 1. Full-Width Photographic Hero Banner (Edge-to-Edge) */}
+      <section className="relative min-h-[52vh] sm:min-h-[58vh] flex items-center justify-center overflow-hidden bg-marca-dark">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${service.heroImage}')` }}
+        >
+          {/* Subtle architectural overlay for optimal text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#11161C]/95 via-[#11161C]/60 to-[#11161C]/45"></div>
         </div>
 
-        {/* Cleanly Organised Service Groups */}
-        <div className="mt-14 lg:mt-16 space-y-8">
-          <div className="border-b border-gray-200 pb-4">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-marca-textDark tracking-tight">
-              Scope of Work & Specifications
-            </h2>
-            <p className="text-xs text-marca-textMuted mt-1">
-              Curated materials, execution standards, and trade capabilities.
-            </p>
-          </div>
+        {/* Text Overlay directly over the photograph */}
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-marca-gold mb-3 inline-block">
+            Marca Construction Division
+          </span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
+            {service.title}
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-gray-200 font-normal max-w-2xl mx-auto leading-relaxed">
+            {service.intro}
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.groups.map((group, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-xl bg-white border border-gray-100 shadow-marca flex flex-col justify-between space-y-4 hover:border-marca-green/40 transition-colors"
-              >
-                <div className="space-y-3">
-                  <h3 className="text-base font-bold text-marca-textDark pb-2 border-b border-gray-100 flex items-center justify-between">
-                    <span>{group.name}</span>
-                    <span className="w-2 h-2 rounded-full bg-marca-green"></span>
-                  </h3>
-                  <ul className="space-y-2">
-                    {group.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-700 leading-relaxed">
-                        <CheckCircle2 className="w-4 h-4 text-marca-green flex-shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Simple Enquire / Contact Banner */}
-        <div className="mt-16 p-8 sm:p-10 rounded-2xl bg-marca-dark text-white border border-white/10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center md:text-left max-w-xl">
-            <span className="text-xs uppercase tracking-widest text-marca-gold font-bold">
-              Consultation & Estimation
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold">
-              Require {service.title} for Your Project in Kerala?
-            </h3>
-            <p className="text-xs sm:text-sm text-gray-300">
-              Get in touch with our team for site inspection, material advice, and transparent pricing.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full md:w-auto">
+          <div className="mt-7 flex items-center justify-center gap-3">
             <a
               href={whatsappInquiryUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold text-xs tracking-wider uppercase shadow-md transition-all w-full sm:w-auto"
+              className="px-6 py-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2 shadow-md"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Inquiry</span>
+              <MessageCircle className="w-4 h-4 fill-white stroke-none" />
+              <span>Enquire via WhatsApp</span>
             </a>
-
             <Link
               to="/contact"
-              className="btn-primary text-xs py-3.5 px-6 uppercase tracking-wider font-semibold w-full sm:w-auto flex items-center justify-center gap-2"
+              className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/25 rounded text-xs uppercase tracking-widest font-semibold transition-colors"
             >
-              <span>Contact Form</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              Contact Form
             </Link>
           </div>
         </div>
+      </section>
 
-        {/* Explore Other Service Categories */}
-        <div className="mt-16 pt-10 border-t border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <span className="text-xs uppercase tracking-widest text-marca-textMuted font-bold">
-              Other Service Categories
+      {/* 2. Organized Technical Service Groups (Compact & Clean Hierarchy) */}
+      <section className="py-16 lg:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border-b border-gray-200 pb-4 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div>
+              <span className="text-[10px] uppercase tracking-widest text-marca-gold-dark font-bold block">
+                Technical Scope & Materials
+              </span>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#11161C] tracking-tight">
+                Service Scope & Specifications
+              </h2>
+            </div>
+            <span className="text-xs text-gray-500">
+              {service.groups.length} technical {service.groups.length === 1 ? 'group' : 'groups'}
             </span>
-            <Link
-              to="/services"
-              className="text-xs font-bold text-marca-green hover:underline flex items-center gap-1"
-            >
-              <span>View All 6 Services</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {otherServices.map((other) => (
-              <Link
-                key={other.slug}
-                to={`/services/${other.slug}`}
-                className="p-3.5 rounded-xl bg-white border border-gray-100 hover:border-marca-green/50 hover:shadow-sm transition-all group flex flex-col justify-between"
+          {/* Compact text lists with clean spacing */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {service.groups.map((group, idx) => (
+              <div
+                key={idx}
+                className="bg-white p-6 rounded-lg border border-gray-200/80 shadow-sm space-y-3.5"
               >
-                <span className="text-xs font-bold text-marca-textDark group-hover:text-marca-green transition-colors line-clamp-1">
-                  {other.title}
-                </span>
-                <span className="text-[11px] text-gray-400 mt-2 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                  <span>Explore</span>
-                  <span>&rarr;</span>
-                </span>
-              </Link>
+                <h3 className="text-sm font-bold text-[#11161C] pb-2 border-b border-gray-100 uppercase tracking-wide">
+                  {group.name}
+                </h3>
+                <ul className="space-y-2">
+                  {group.items.map((item, itemIdx) => (
+                    <li
+                      key={itemIdx}
+                      className="text-xs sm:text-sm text-gray-700 leading-relaxed flex items-start gap-2"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-marca-green flex-shrink-0 mt-2"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
+
+          {/* Simple Enquire Now Card */}
+          <div className="mt-14 p-8 bg-white rounded-lg border border-gray-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+              <h3 className="text-lg font-bold text-[#11161C]">
+                Ready to discuss your {service.title.toLowerCase()} requirements?
+              </h3>
+              <p className="text-xs text-gray-500 mt-1">
+                Reach out to our engineering team in Calicut for prompt consultation and site estimation.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3 w-full sm:w-auto justify-center">
+              <a
+                href={whatsappInquiryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded text-xs uppercase tracking-widest font-semibold transition-colors flex items-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4 fill-white stroke-none" />
+                <span>Enquire Now</span>
+              </a>
+              <Link
+                to="/contact"
+                className="px-5 py-3 bg-[#11161C] hover:bg-[#25303D] text-white rounded text-xs uppercase tracking-widest font-semibold transition-colors"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+
+          {/* Minimal Quick Links to Other 5 Services */}
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold block mb-4">
+              Other Service Categories
+            </span>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {otherServices.map((other) => (
+                <Link
+                  key={other.slug}
+                  to={`/services/${other.slug}`}
+                  className="p-3 bg-white rounded border border-gray-200 hover:border-marca-green text-xs font-semibold text-gray-800 hover:text-marca-green-700 transition-colors flex items-center justify-between group"
+                >
+                  <span className="truncate">{other.title}</span>
+                  <ArrowRight className="w-3 h-3 text-gray-400 group-hover:text-marca-green-700 group-hover:translate-x-0.5 transition-transform flex-shrink-0 ml-1" />
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

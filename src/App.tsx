@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { WhatsAppFloat } from './components/WhatsAppFloat';
+import { StickyContactActions } from './components/StickyContactActions';
 import { ScrollToTop } from './components/ScrollToTop';
 
 // Pages
@@ -16,11 +16,11 @@ import { ContactPage } from './pages/ContactPage';
 export const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-marca-light text-marca-textDark antialiased">
+      <div className="flex flex-col min-h-screen bg-[#F8F9F5] text-[#11161C] antialiased">
         <ScrollToTop />
         <Navbar />
 
-        <main className="flex-grow">
+        <main className="flex-grow pt-16 sm:pt-18">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -66,7 +66,7 @@ export const App: React.FC = () => {
         </main>
 
         <Footer />
-        <WhatsAppFloat />
+        <StickyContactActions />
       </div>
     </Router>
   );

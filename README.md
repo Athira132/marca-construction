@@ -1,41 +1,34 @@
 # MARCA CONSTRUCTION — Official Website
 
-A premium, modern, and responsive website built for **MARCA CONSTRUCTION**, a Kerala-based construction company creating residential homes, bespoke villas, and small business spaces across Kerala.
+A minimal, premium, and refined architectural website built for **MARCA CONSTRUCTION**, based in Moorkkanadu, Pantheerankavu, Calicut, Kerala.
 
-> **Tagline:** *"Building Spaces. Creating Futures."*
-
----
-
-## 🎨 Design Philosophy & Brand System
-
-- **Brand Palette:**
-  - **Dark Charcoal / Obsidian Slate:** `#11161C`, `#1A222B`, `#222B36` (Grounding architectural foundation)
-  - **Marca Eco Leaf Green:** `#6FA82A` (Vibrant eco-leaf green extracted from the 3 central leaves in the official logo, symbolizing sustainable and tropical design)
-  - **Marca Warm Gold / Champagne Brass:** `#C4A661`, `#DFC88E` (Refined beveled trim from the logo edge and warm ambient architectural lighting)
-  - **Ivory Light / Off-White:** `#F8F9F5`, `#EEF0EB` (Clean architectural surface)
-- **Architectural Layout:**
-  - Inspired by editorial architectural layouts with generous negative space, split-screen hero composition, twilight and golden-hour residential lighting, and subtle modern cards.
-  - Dedicated Kerala climate resilience features (monsoon weatherproofing, courtyard airflow, natural materials).
+> **Tagline:** *"Building Spaces. Creating Futures."*  
+> **Contact:** Shimjith K.K. | Mobile: 9847943104 | Office: 9946943104 | Email: marcaconstruction01@gmail.com | GST: 32LGSPK8306C1Z8
 
 ---
 
-## 📄 Website Structure (5 Main Pages)
+## 🎨 Design System & Refined Visual Presentation
+
+- **Architectural Aesthetic:** Minimal, calm, and classy — designed like a high-end architectural studio rather than a crowded template.
+- **Solid Navigation:** Opaque `#11161C` navigation bar with compact height, brand logo on the left, navigation on the right, and a clean dropdown for all 6 service categories.
+- **Edge-to-Edge Full-Coverage Hero Banners:** Every main page features a full-width photographic hero image with an elegant typography overlay and subtle contrast filter.
+- **Persistent Sticky Contact:** Dual floating actions for WhatsApp (`wa.me/919847943104`) and Direct Call (`tel:+919847943104`).
+- **Muted Natural Palette:** Charcoal (`#11161C`), muted leaf green (`#6FA82A`), warm brass/gold (`#C4A661`), and ivory/chalk surfaces (`#F8F9F5`).
+
+---
+
+## 📄 Website Structure
 
 1. **Home (`/`)**:
-   - Flagship cinematic Hero section with split-screen layout, short headline *"Building Spaces. Creating Futures."*, supporting description, two primary CTAs (*"Explore Our Work"* and *"Contact Us"*), and high-resolution Kerala residential villa visual.
-   - Core Value Badges (Climate-Ready, Turnkey Execution, Material Rigor, Milestone Transparency).
-   - Company Introduction section.
-   - Featured Services showcase.
-   - Featured Architectural Projects.
-   - Why Choose Us (Monsoon defense, certified materials, end-to-end execution, transparent BOQ).
-   - Direct consultation call-to-action banner.
+   - Full-cover hero banner: *"Building Spaces. Creating Futures."* with short description *"Thoughtful solutions for homes and businesses."* and buttons *"Explore Services"* and *"Contact Us"*.
+   - Compact architectural introduction.
+   - Six minimal service division cards.
+   - Small gallery preview.
+   - Clean, minimal footer.
 
-2. **About Us (`/about`)**:
-   - Architectural philosophy and approach.
-   - 5-step construction process (Consultation -> 3D Visualization -> Approvals -> Precision Build -> Handover).
-   - Mission and Vision statements.
-   - Core Values (Integrity, Climate & Sustainability, Architectural Craft, Client Care).
-   - Dedicated editable placeholder sections for Company History and Team / Leadership profiles (no fabricated history or false statistics).
+2. **About (`/about`)**:
+   - Full-cover architectural hero banner.
+   - Concise practice introduction and verified company profile (Location, Contact Person, GST, phone numbers).
 
 3. **Services (`/services`) & 6 Dedicated Trade Pages**:
    - Navigation dropdown and individual dedicated pages:

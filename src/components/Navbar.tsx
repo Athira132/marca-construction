@@ -1,40 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import {
-  Menu,
-  X,
-  Phone,
-  ArrowUpRight,
-  MessageCircle,
-  ChevronDown,
-} from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { MarcaLogo } from './MarcaLogo';
-import { companyData } from '../data/company';
 import { servicesData } from '../data/services';
 
 export const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  const isHome = location.pathname === '/';
   const isServicesActive = location.pathname.startsWith('/services');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close menus on route change
   useEffect(() => {
@@ -56,31 +33,23 @@ export const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-marca-dark/95 backdrop-blur-md shadow-lg border-b border-white/10 py-3.5'
-          : isHome
-          ? 'bg-gradient-to-b from-marca-dark/80 via-marca-dark/40 to-transparent py-5'
-          : 'bg-marca-dark py-4 border-b border-white/10'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#11161C] border-b border-white/10 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Brand Logo */}
+        <div className="flex items-center justify-between h-16 sm:h-18">
+          {/* Logo on the left */}
           <div className="flex items-center">
-            <MarcaLogo variant="light" size="md" />
+            <MarcaLogo variant="light" size="sm" />
           </div>
 
-          {/* Desktop Navigation Links */}
+          {/* Navigation links on the right */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `px-3.5 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 relative ${
+                `px-3.5 py-2 text-xs uppercase tracking-widest transition-colors font-medium ${
                   isActive
-                    ? 'text-white font-semibold after:content-[""] after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-0.5 after:bg-marca-green'
-                    : 'text-gray-200 hover:text-white hover:bg-white/10'
+                    ? 'text-white font-semibold border-b-2 border-marca-green'
+                    : 'text-gray-300 hover:text-white'
                 }`
               }
             >
@@ -90,17 +59,17 @@ export const Navbar: React.FC = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `px-3.5 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 relative ${
+                `px-3.5 py-2 text-xs uppercase tracking-widest transition-colors font-medium ${
                   isActive
-                    ? 'text-white font-semibold after:content-[""] after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-0.5 after:bg-marca-green'
-                    : 'text-gray-200 hover:text-white hover:bg-white/10'
+                    ? 'text-white font-semibold border-b-2 border-marca-green'
+                    : 'text-gray-300 hover:text-white'
                 }`
               }
             >
               About
             </NavLink>
 
-            {/* Services with Dropdown */}
+            {/* Services Dropdown */}
             <div
               className="relative"
               ref={dropdownRef}
@@ -110,52 +79,50 @@ export const Navbar: React.FC = () => {
               <div className="flex items-center">
                 <Link
                   to="/services"
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 relative flex items-center gap-1.5 ${
+                  className={`px-3.5 py-2 text-xs uppercase tracking-widest transition-colors font-medium flex items-center gap-1.5 ${
                     isServicesActive
-                      ? 'text-white font-semibold after:content-[""] after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-0.5 after:bg-marca-green'
-                      : 'text-gray-200 hover:text-white hover:bg-white/10'
+                      ? 'text-white font-semibold border-b-2 border-marca-green'
+                      : 'text-gray-300 hover:text-white'
                   }`}
                 >
                   <span>Services</span>
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      isServicesOpen ? 'rotate-180 text-marca-green' : 'text-gray-400'
+                      isServicesOpen ? 'rotate-180 text-marca-gold' : 'text-gray-400'
                     }`}
                   />
                 </Link>
               </div>
 
-              {/* Dropdown Menu */}
+              {/* Minimal Classy Dropdown Flyout */}
               {isServicesOpen && (
-                <div className="absolute top-full left-0 w-72 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="bg-marca-slate/95 backdrop-blur-xl border border-white/15 rounded-xl shadow-2xl p-2.5 space-y-1">
-                    <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-marca-gold border-b border-white/10">
-                      Our 6 Service Divisions
+                <div className="absolute top-full right-0 w-64 pt-2 z-50">
+                  <div className="bg-[#151B22] border border-white/15 rounded-lg shadow-2xl py-2 space-y-0.5">
+                    <div className="px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-marca-gold border-b border-white/10 mb-1">
+                      Service Categories
                     </div>
                     {servicesData.map((s, idx) => (
                       <Link
                         key={s.slug}
                         to={`/services/${s.slug}`}
-                        className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all group ${
+                        className={`block px-4 py-2 text-xs transition-colors ${
                           location.pathname === `/services/${s.slug}`
-                            ? 'bg-marca-green/20 text-white font-bold'
-                            : 'text-gray-300 hover:text-white hover:bg-white/10'
+                            ? 'bg-white/10 text-white font-semibold'
+                            : 'text-gray-300 hover:text-white hover:bg-white/5'
                         }`}
                       >
-                        <span className="flex items-center gap-2">
-                          <span className="text-[10px] text-marca-gold font-mono">{idx + 1}.</span>
-                          <span>{s.title}</span>
+                        <span className="text-marca-gold/70 font-mono text-[11px] mr-2">
+                          0{idx + 1}.
                         </span>
-                        <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 text-marca-green transition-opacity" />
+                        {s.title}
                       </Link>
                     ))}
-
-                    <div className="pt-1.5 mt-1 border-t border-white/10">
+                    <div className="pt-1 border-t border-white/10 mt-1">
                       <Link
                         to="/services"
-                        className="block px-3 py-1.5 text-center text-[11px] font-bold text-marca-gold hover:text-white transition-colors"
+                        className="block px-4 py-1.5 text-[11px] font-semibold text-marca-gold hover:text-white transition-colors"
                       >
-                        View All Services Overview &rarr;
+                        All Services Overview &rarr;
                       </Link>
                     </div>
                   </div>
@@ -166,10 +133,10 @@ export const Navbar: React.FC = () => {
             <NavLink
               to="/gallery"
               className={({ isActive }) =>
-                `px-3.5 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 relative ${
+                `px-3.5 py-2 text-xs uppercase tracking-widest transition-colors font-medium ${
                   isActive
-                    ? 'text-white font-semibold after:content-[""] after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-0.5 after:bg-marca-green'
-                    : 'text-gray-200 hover:text-white hover:bg-white/10'
+                    ? 'text-white font-semibold border-b-2 border-marca-green'
+                    : 'text-gray-300 hover:text-white'
                 }`
               }
             >
@@ -179,10 +146,10 @@ export const Navbar: React.FC = () => {
             <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `px-3.5 py-2 rounded-lg text-sm font-medium tracking-wide transition-all duration-200 relative ${
+                `px-3.5 py-2 text-xs uppercase tracking-widest transition-colors font-medium ${
                   isActive
-                    ? 'text-white font-semibold after:content-[""] after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-0.5 after:bg-marca-green'
-                    : 'text-gray-200 hover:text-white hover:bg-white/10'
+                    ? 'text-white font-semibold border-b-2 border-marca-green'
+                    : 'text-gray-300 hover:text-white'
                 }`
               }
             >
@@ -190,28 +157,11 @@ export const Navbar: React.FC = () => {
             </NavLink>
           </nav>
 
-          {/* Right Action Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link
-              to="/contact"
-              className="btn-primary py-2.5 px-4 text-xs tracking-wider uppercase font-semibold flex items-center gap-2 group"
-            >
-              <span>Consult an Architect</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <Link
-              to="/contact"
-              className="px-3 py-1.5 rounded text-xs font-semibold bg-marca-green text-white"
-            >
-              Enquire
-            </Link>
+          {/* Mobile Hamburger Button */}
+          <div className="flex md:hidden items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-marca-green"
+              className="p-2 rounded text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
               aria-label="Toggle navigation menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -221,126 +171,96 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-marca-dark/98 backdrop-blur-xl border-b border-white/10 animate-in fade-in slide-in-from-top-4 duration-200 max-h-[85vh] overflow-y-auto">
-          <div className="px-5 pt-3 pb-6 space-y-1.5">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
-                  isActive
-                    ? 'bg-marca-green/20 text-white font-semibold border-l-4 border-marca-green'
-                    : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                }`
-              }
-            >
-              Home
-            </NavLink>
+        <div className="md:hidden bg-[#11161C] border-b border-white/10 px-4 py-4 space-y-1">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `block px-3 py-2 text-xs uppercase tracking-widest font-medium rounded ${
+                isActive ? 'text-white bg-white/10 font-bold' : 'text-gray-300'
+              }`
+            }
+          >
+            Home
+          </NavLink>
 
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
-                  isActive
-                    ? 'bg-marca-green/20 text-white font-semibold border-l-4 border-marca-green'
-                    : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                }`
-              }
-            >
-              About
-            </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `block px-3 py-2 text-xs uppercase tracking-widest font-medium rounded ${
+                isActive ? 'text-white bg-white/10 font-bold' : 'text-gray-300'
+              }`
+            }
+          >
+            About
+          </NavLink>
 
-            {/* Mobile Services Accordion */}
-            <div className="rounded-lg bg-white/5 overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-2.5 text-base font-medium text-gray-200">
-                <Link to="/services" className="hover:text-white flex-1">
-                  Services
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                  className="p-1.5 text-gray-400 hover:text-white"
-                  aria-label="Expand services"
-                >
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      isMobileServicesOpen ? 'rotate-180 text-marca-green' : ''
-                    }`}
-                  />
-                </button>
+          {/* Mobile Services Accordion */}
+          <div>
+            <div className="flex items-center justify-between px-3 py-2 text-xs uppercase tracking-widest font-medium text-gray-300">
+              <Link to="/services" className="hover:text-white">
+                Services
+              </Link>
+              <button
+                type="button"
+                onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                className="p-1 text-gray-400"
+                aria-label="Expand services"
+              >
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${
+                    isMobileServicesOpen ? 'rotate-180 text-marca-gold' : ''
+                  }`}
+                />
+              </button>
+            </div>
+
+            {isMobileServicesOpen && (
+              <div className="pl-4 pr-2 py-1 space-y-1 border-l border-white/10 ml-3">
+                {servicesData.map((s, idx) => (
+                  <NavLink
+                    key={s.slug}
+                    to={`/services/${s.slug}`}
+                    className={({ isActive }) =>
+                      `block px-3 py-1.5 text-xs rounded transition-colors ${
+                        isActive
+                          ? 'text-white bg-white/10 font-semibold'
+                          : 'text-gray-400 hover:text-white'
+                      }`
+                    }
+                  >
+                    <span className="text-marca-gold/70 mr-1.5 font-mono text-[10px]">
+                      0{idx + 1}.
+                    </span>
+                    {s.title}
+                  </NavLink>
+                ))}
               </div>
-
-              {isMobileServicesOpen && (
-                <div className="px-3 pb-3 pt-1 space-y-1 bg-black/20 border-t border-white/5">
-                  {servicesData.map((s, idx) => (
-                    <NavLink
-                      key={s.slug}
-                      to={`/services/${s.slug}`}
-                      className={({ isActive }) =>
-                        `block px-3 py-2 rounded-md text-xs transition-colors ${
-                          isActive
-                            ? 'bg-marca-green/30 text-white font-bold'
-                            : 'text-gray-300 hover:text-white hover:bg-white/5'
-                        }`
-                      }
-                    >
-                      <span className="text-marca-gold font-mono mr-1.5">{idx + 1}.</span>
-                      {s.title}
-                    </NavLink>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <NavLink
-              to="/gallery"
-              className={({ isActive }) =>
-                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
-                  isActive
-                    ? 'bg-marca-green/20 text-white font-semibold border-l-4 border-marca-green'
-                    : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                }`
-              }
-            >
-              Gallery
-            </NavLink>
-
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
-                  isActive
-                    ? 'bg-marca-green/20 text-white font-semibold border-l-4 border-marca-green'
-                    : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                }`
-              }
-            >
-              Contact
-            </NavLink>
-
-            <div className="pt-4 border-t border-white/10 mt-3 space-y-2.5">
-              <a
-                href={`tel:${companyData.phone.raw}`}
-                className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:text-white bg-white/5"
-              >
-                <Phone className="w-4 h-4 text-marca-gold" />
-                <span>Call Us: {companyData.phone.display}</span>
-              </a>
-
-              <a
-                href={`https://wa.me/${companyData.whatsapp.number}?text=${encodeURIComponent(
-                  companyData.whatsapp.defaultMessage
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-lg text-sm font-semibold bg-[#25D366] text-white"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
+            )}
           </div>
+
+          <NavLink
+            to="/gallery"
+            className={({ isActive }) =>
+              `block px-3 py-2 text-xs uppercase tracking-widest font-medium rounded ${
+                isActive ? 'text-white bg-white/10 font-bold' : 'text-gray-300'
+              }`
+            }
+          >
+            Gallery
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `block px-3 py-2 text-xs uppercase tracking-widest font-medium rounded ${
+                isActive ? 'text-white bg-white/10 font-bold' : 'text-gray-300'
+              }`
+            }
+          >
+            Contact
+          </NavLink>
         </div>
       )}
     </header>
