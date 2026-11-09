@@ -16,19 +16,33 @@ export const MarcaLogo: React.FC<MarcaLogoProps> = ({
   size = 'md',
   asLink = true,
 }) => {
-  // Dimensions
+  // Proportional dimensions for crisp, prominent branding
   const sizes = {
-    sm: { icon: 'w-8 h-8', textTitle: 'text-base', textSub: 'text-[9px]' },
-    md: { icon: 'w-10 h-10', textTitle: 'text-xl', textSub: 'text-[10px]' },
-    lg: { icon: 'w-14 h-14', textTitle: 'text-2xl', textSub: 'text-xs' },
+    sm: {
+      icon: 'w-9 h-9 sm:w-10 sm:h-10',
+      textTitle: 'text-lg sm:text-xl',
+      textSub: 'text-[9px] sm:text-[10px]',
+    },
+    md: {
+      icon: 'w-11 h-11 sm:w-12 sm:h-12',
+      textTitle: 'text-xl sm:text-2xl',
+      textSub: 'text-[10px] sm:text-[11px]',
+    },
+    lg: {
+      icon: 'w-14 h-14 sm:w-16 sm:h-16',
+      textTitle: 'text-2xl sm:text-3xl',
+      textSub: 'text-xs',
+    },
   };
 
   const currentSize = sizes[size];
 
   const logoContent = (
-    <div className={`flex items-center gap-3 group select-none ${className}`}>
+    <div className={`flex items-center gap-2.5 sm:gap-3 group select-none ${className}`}>
       {/* Precision Brand Icon Vector: Architectural House + Chimney + 3 Green Eco-Leaves */}
-      <div className={`relative flex-shrink-0 ${currentSize.icon} transition-transform duration-300 group-hover:scale-105`}>
+      <div
+        className={`relative flex-shrink-0 ${currentSize.icon} transition-transform duration-300 group-hover:scale-105`}
+      >
         <svg
           viewBox="0 0 100 110"
           className="w-full h-full drop-shadow-sm"
@@ -129,7 +143,7 @@ export const MarcaLogo: React.FC<MarcaLogoProps> = ({
               currentSize.textSub
             } ${
               variant === 'light'
-                ? 'text-marca-gold-light opacity-90'
+                ? 'text-marca-gold-light opacity-95'
                 : 'text-marca-gold-dark'
             }`}
           >
@@ -142,7 +156,7 @@ export const MarcaLogo: React.FC<MarcaLogoProps> = ({
 
   if (asLink) {
     return (
-      <Link to="/" aria-label="Marca Construction Home" className="inline-block">
+      <Link to="/" aria-label="Marca Construction Home" className="inline-block py-1">
         {logoContent}
       </Link>
     );
@@ -150,4 +164,3 @@ export const MarcaLogo: React.FC<MarcaLogoProps> = ({
 
   return logoContent;
 };
-

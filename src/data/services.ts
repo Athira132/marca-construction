@@ -2,7 +2,7 @@
  * MARCA CONSTRUCTION - Official Services Catalog
  * 
  * Source of truth for all 6 dedicated service categories.
- * Wording is kept minimal, classy, professional, and free of duplicates.
+ * Display category names and subcategories only (no numerical or alphabetical prefixes).
  */
 
 export interface ServiceSubGroup {
@@ -27,10 +27,10 @@ export const servicesData: ServiceCategory[] = [
     title: 'Interior Works',
     tagline: 'Precision structural joinery, surfaces & architectural interior execution',
     intro: 'Comprehensive interior solutions encompassing certified structural boards, premium surface finishing, false ceilings, countertops, hardware, and bespoke architectural detailing.',
-    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=85',
     groups: [
       {
-        name: 'A. Carcass & Structural Boards',
+        name: 'Carcass & Structural Boards',
         items: [
           'BWP / Marine Plywood (IS 710)',
           'BWR / Commercial Grade Plywood (IS 303)',
@@ -40,7 +40,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'B. Surface Finishing',
+        name: 'Surface Finishing',
         items: [
           'Laminates / Mica',
           'Acrylic Sheets',
@@ -50,7 +50,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'C. False Ceiling & Partitions',
+        name: 'False Ceiling & Partitions',
         items: [
           'Gypsum Board',
           'Grid Ceiling / Armstrong',
@@ -59,7 +59,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'D. Kitchen & Vanity Countertops',
+        name: 'Kitchen & Vanity Countertops',
         items: [
           'Granite',
           'Quartz',
@@ -68,7 +68,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'E. Hardware & Accessories',
+        name: 'Hardware & Accessories',
         items: [
           'Hinges',
           'Drawer Channels',
@@ -76,7 +76,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'F. Glass & Metal Works',
+        name: 'Glass & Metal Works',
         items: [
           'Toughened Glass',
           'Metal Inlay Strips',
@@ -90,7 +90,7 @@ export const servicesData: ServiceCategory[] = [
     title: 'Plumbing Works',
     tagline: 'Reliable water supply, wastewater drainage & departmental plumbing',
     intro: 'Complete sanitary engineering, underground trenching, and certified piping systems for residential houses, commercial buildings, and government PWD projects.',
-    heroImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/images/plumbing-hero.jpg',
     groups: [
       {
         name: 'Project Sectors',
@@ -133,10 +133,10 @@ export const servicesData: ServiceCategory[] = [
     title: 'Painting Works',
     tagline: 'Architectural interior, exterior damp-proofing & fine wood finishing',
     intro: 'End-to-end surface preparation, moisture protection, and high-performance paint and polish applications engineered for Kerala’s climate.',
-    heroImage: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1600&q=80',
+    heroImage: '/images/painting-hero.jpg',
     groups: [
       {
-        name: 'A. Interior Painting',
+        name: 'Interior Painting',
         items: [
           'Surface preparation',
           'Water primer',
@@ -148,7 +148,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'B. Exterior Painting',
+        name: 'Exterior Painting',
         items: [
           'Wall cleaning',
           'Crack filling',
@@ -158,7 +158,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'C. Wood & Metal Finishing',
+        name: 'Wood & Metal Finishing',
         items: [
           'Metal: Epoxy primer, enamel paint, gloss or satin finish',
           'Wood: Wood filler, sanding, sealer, PU / Melamine polish, wood primer and enamel painting',
@@ -172,7 +172,7 @@ export const servicesData: ServiceCategory[] = [
     title: 'Solar Systems',
     tagline: 'Clean solar power generation, thermal heating & agricultural pumping',
     intro: 'Sustainable solar energy installations designed for energy independence, reduced utility costs, and reliable backup across Kerala.',
-    heroImage: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=2000&q=85',
     groups: [
       {
         name: 'Power Generation Systems',
@@ -198,7 +198,7 @@ export const servicesData: ServiceCategory[] = [
     title: 'Custom Furniture & Epoxy Works',
     tagline: 'Handcrafted live-edge timber, artistic epoxy resins & bespoke furniture',
     intro: 'Artisan woodworking and contemporary epoxy resin craft, delivering bespoke focal furniture pieces for contemporary homes and modern commercial spaces.',
-    heroImage: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=2000&q=85',
     groups: [
       {
         name: 'Custom Furniture & Epoxy Works',
@@ -217,10 +217,10 @@ export const servicesData: ServiceCategory[] = [
     title: 'Electrical Works',
     tagline: 'Residential, industrial power distribution, cabling & PWD departmental projects',
     intro: 'Licensed electrical engineering solutions compliant with Kerala Electrical Inspectorate standards, spanning residential wiring, industrial control panels, HT/LT cabling, and backup generators.',
-    heroImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=2000&q=85',
     groups: [
       {
-        name: 'A. Residential & Commercial',
+        name: 'Residential & Commercial',
         items: [
           'Complete wiring for houses, villas, flats and apartments',
           'Modular switchboards and lighting design',
@@ -228,7 +228,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'B. Industrial & Factory Electrical Solutions',
+        name: 'Industrial & Factory Electrical Solutions',
         items: [
           'Three-phase power distribution',
           'APFC panel installation',
@@ -237,7 +237,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'C. Cabling & Earthing',
+        name: 'Cabling & Earthing',
         items: [
           'LT / HT underground cable laying, trenching and jointing',
           'Cable tray routing, glanding and termination',
@@ -246,7 +246,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'D. Generator & Power Backup',
+        name: 'Generator & Power Backup',
         items: [
           'Diesel generator supply, foundation and installation',
           'AMF and changeover panels',
@@ -254,7 +254,7 @@ export const servicesData: ServiceCategory[] = [
         ],
       },
       {
-        name: 'E. Government & PWD Projects',
+        name: 'Government & PWD Projects',
         items: [
           'Departmental tender works including PWD, KSEB and Local Self Government departments, schools and hospitals',
           'Execution following electrical inspectorate standards',

@@ -35,9 +35,9 @@ export const Navbar: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#11161C] border-b border-white/10 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-18">
-          {/* Logo on the left */}
-          <div className="flex items-center">
+        <div className="flex items-center justify-between h-18 sm:h-20">
+          {/* Prominent Logo on the left with original aspect ratio preserved */}
+          <div className="flex items-center py-2">
             <MarcaLogo variant="light" size="sm" />
           </div>
 
@@ -69,7 +69,7 @@ export const Navbar: React.FC = () => {
               About
             </NavLink>
 
-            {/* Services Dropdown */}
+            {/* Services Dropdown (No category numbers) */}
             <div
               className="relative"
               ref={dropdownRef}
@@ -94,14 +94,14 @@ export const Navbar: React.FC = () => {
                 </Link>
               </div>
 
-              {/* Minimal Classy Dropdown Flyout */}
+              {/* Minimal Classy Dropdown Flyout - Displaying Category Names Only */}
               {isServicesOpen && (
                 <div className="absolute top-full right-0 w-64 pt-2 z-50">
                   <div className="bg-[#151B22] border border-white/15 rounded-lg shadow-2xl py-2 space-y-0.5">
                     <div className="px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-marca-gold border-b border-white/10 mb-1">
                       Service Categories
                     </div>
-                    {servicesData.map((s, idx) => (
+                    {servicesData.map((s) => (
                       <Link
                         key={s.slug}
                         to={`/services/${s.slug}`}
@@ -111,9 +111,6 @@ export const Navbar: React.FC = () => {
                             : 'text-gray-300 hover:text-white hover:bg-white/5'
                         }`}
                       >
-                        <span className="text-marca-gold/70 font-mono text-[11px] mr-2">
-                          0{idx + 1}.
-                        </span>
                         {s.title}
                       </Link>
                     ))}
@@ -171,7 +168,7 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (No category numbers) */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-[#11161C] border-b border-white/10 px-4 py-4 space-y-1">
           <NavLink
@@ -218,7 +215,7 @@ export const Navbar: React.FC = () => {
 
             {isMobileServicesOpen && (
               <div className="pl-4 pr-2 py-1 space-y-1 border-l border-white/10 ml-3">
-                {servicesData.map((s, idx) => (
+                {servicesData.map((s) => (
                   <NavLink
                     key={s.slug}
                     to={`/services/${s.slug}`}
@@ -230,9 +227,6 @@ export const Navbar: React.FC = () => {
                       }`
                     }
                   >
-                    <span className="text-marca-gold/70 mr-1.5 font-mono text-[10px]">
-                      0{idx + 1}.
-                    </span>
                     {s.title}
                   </NavLink>
                 ))}

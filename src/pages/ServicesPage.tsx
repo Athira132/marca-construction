@@ -40,7 +40,7 @@ export const ServicesPage: React.FC = () => {
       <section className="py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {servicesData.map((service, idx) => (
+            {servicesData.map((service) => (
               <Link
                 key={service.id}
                 to={`/services/${service.slug}`}
@@ -54,9 +54,7 @@ export const ServicesPage: React.FC = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  <span className="absolute bottom-3 left-4 text-[11px] font-mono font-bold text-white/90">
-                    0{idx + 1}.
-                  </span>
+
                 </div>
 
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">

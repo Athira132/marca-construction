@@ -5,10 +5,9 @@ import { ServiceCategory } from '../data/services';
 
 interface ServiceCardProps {
   service: ServiceCategory;
-  index?: number;
 }
 
-export const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
+export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <Link
       to={`/services/${service.slug}`}
@@ -24,12 +23,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-marca-dark/80 via-transparent to-transparent"></div>
 
-        {/* Index indicator */}
-        {index !== undefined && (
-          <span className="absolute top-4 left-4 px-2.5 py-1 rounded text-[11px] font-mono font-bold bg-marca-dark/80 backdrop-blur-md text-marca-gold border border-white/10">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-        )}
+
 
         <div className="absolute bottom-3 left-4 right-4">
           <span className="text-xs font-semibold text-marca-green uppercase tracking-wider block">
