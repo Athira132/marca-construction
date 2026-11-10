@@ -31,15 +31,15 @@ export const ServicesPage: React.FC = () => {
             Services
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-200 font-normal max-w-xl mx-auto leading-relaxed">
-            Six dedicated trade divisions delivering high-standard execution across Kerala.
+            Eight dedicated trade divisions delivering high-standard execution across Kerala.
           </p>
         </div>
       </section>
 
-      {/* Six Minimal Service Cards */}
+      {/* Eight Minimal Service Cards */}
       <section className="py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {servicesData.map((service) => (
               <Link
                 key={service.id}

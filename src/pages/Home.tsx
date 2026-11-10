@@ -31,7 +31,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Six Minimal Service Cards (Category Names Only - No Numbers) */}
+      {/* 3. Eight Minimal Service Cards (Category Names Only - No Numbers) */}
       <section className="py-20 lg:py-24 bg-[#F8F9F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4 border-b border-gray-200 pb-5">
@@ -52,7 +52,7 @@ export const Home: React.FC = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {servicesData.map((service) => (
               <Link
                 key={service.id}

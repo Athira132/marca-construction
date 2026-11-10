@@ -28,10 +28,18 @@ export const App: React.FC = () => {
             {/* Services Index */}
             <Route path="/services" element={<ServicesPage />} />
             
-            {/* 6 Dedicated Service Pages */}
+            {/* Dedicated Service Pages */}
             <Route
               path="/services/interior-works"
               element={<ServiceDetailPage categorySlug="interior-works" />}
+            />
+            <Route
+              path="/services/roof-works"
+              element={<ServiceDetailPage categorySlug="roof-works" />}
+            />
+            <Route
+              path="/services/carpenter-works"
+              element={<ServiceDetailPage categorySlug="carpenter-works" />}
             />
             <Route
               path="/services/plumbing-works"

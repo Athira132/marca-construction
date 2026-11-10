@@ -1,7 +1,7 @@
 /**
  * MARCA CONSTRUCTION - Official Services Catalog
  * 
- * Source of truth for all 6 dedicated service categories.
+ * Source of truth for all 8 dedicated service categories.
  * Display category names and subcategories only (no numerical or alphabetical prefixes).
  * Each subcategory includes verified object-focused photography with zero human figures or watermarks.
  */
@@ -382,6 +382,176 @@ export const servicesData: ServiceCategory[] = [
           'Schools, healthcare facilities & municipal projects',
           'Electrical inspectorate approvals & schematic drawings',
           'Mandatory insulation & earth resistance testing',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'roof-works',
+    slug: 'roof-works',
+    title: 'Roof Works',
+    tagline: 'Architectural false ceilings, precision gypsum engineering & structural roofing solutions',
+    intro: 'Specialized ceiling and roofing engineering encompassing gypsum board installations, custom architectural false ceilings, lightweight partitions, metal framework, and structural waterproofing.',
+    heroImage: '/images/roof-hero.jpg',
+    groups: [
+      {
+        name: 'Gypsum Ceiling Works',
+        description: 'Engineered suspended gypsum ceiling installations providing seamless thermal insulation, acoustic control, and flush surface integration.',
+        image: '/images/subcategories/roof-gypsum-ceiling-works.jpg',
+        items: [
+          'Direct-to-soffit & suspended gypsum ceiling systems',
+          'High thermal and acoustic attenuation boards',
+          'Tapered edge seamless jointing & skim coat finishes',
+        ],
+      },
+      {
+        name: 'Gypsum Board Ceiling Installation',
+        description: 'Certified moisture and fire-resistant gypsum board assemblies mounted onto calibrated galvanised suspension grids.',
+        image: '/images/subcategories/roof-gypsum-board-installation.jpg',
+        items: [
+          'Standard, moisture-resistant (MR) & fire-stop boards',
+          'Precision laser-levelled suspension alignment',
+          'Acoustic grid tile & Armstrong suspended ceiling systems',
+        ],
+      },
+      {
+        name: 'False Ceiling Designs',
+        description: 'Bespoke designer false ceilings incorporating indirect ambient cove lighting, CNC fretwork patterns, and multi-tier geometric profiles.',
+        image: '/images/subcategories/roof-false-ceiling-designs.jpg',
+        items: [
+          'Multi-level stepped & peripheral cove lighting recesses',
+          'Backlit decorative CNC latticework & acoustic profiles',
+          'Integrated downlight cutouts & linear diffuser channels',
+        ],
+      },
+      {
+        name: 'Gypsum Partitions',
+        description: 'Lightweight, rapid-assembly gypsum dividing walls with sound deadening and fire safety ratings for homes and corporate spaces.',
+        image: '/images/subcategories/roof-gypsum-partitions.jpg',
+        items: [
+          'Single & double-skin stud drywall dividing partitions',
+          'Mineral wool cavity infill for acoustic separation',
+          'Damp-proof perimeter base and door opening framing',
+        ],
+      },
+      {
+        name: 'Ceiling Framing and Framework',
+        description: 'Heavy-gauge galvanized steel framework, perimeter channels, intermediate studs, and structural truss assemblies.',
+        image: '/images/subcategories/roof-ceiling-framing.jpg',
+        items: [
+          'Galvanized iron (GI) perimeter wall angles & ceiling sections',
+          'Heavy-duty adjustable suspension rods & soffit cleats',
+          'Engineered timber roof trusses & steel structural framework',
+        ],
+      },
+      {
+        name: 'Ceiling Finishing and Related Gypsum Works',
+        description: 'Artisanal Plaster of Paris (POP) moldings, decorative cornices, perimeter pelmets, and ultra-smooth skim coat finishing.',
+        image: '/images/subcategories/roof-ceiling-finishing.jpg',
+        items: [
+          'Plaster of Paris (POP) decorative cornices & ornamental beadings',
+          'Curtain pelmets and concealed blind track recesses',
+          'Zero-defect surface preparation & primer application',
+        ],
+      },
+      {
+        name: 'Roofing Structure and Waterproofing',
+        description: 'Comprehensive roof architecture, truss installation, clay tile laying, and multi-layer weatherproofing membranes.',
+        image: '/images/subcategories/roof-structure-waterproofing.jpg',
+        items: [
+          'Pitched roof truss fabrication & ceramic/terracotta tile fixing',
+          'Seamless elastomeric roof slab waterproofing membranes',
+          'Rainwater gutter channels, flashing & downpipe installation',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'carpenter-works',
+    slug: 'carpenter-works',
+    title: 'Carpenter Works',
+    tagline: 'Master carpentry, bespoke solid timber joinery & architectural woodwork',
+    intro: 'Craftsmanship-driven carpentry services delivering custom wooden furniture, built-in wardrobes, modular kitchen cabinetry, solid timber doors, architectural partitions, and artisan woodwork restoration.',
+    heroImage: '/images/carpenter-hero.jpg',
+    groups: [
+      {
+        name: 'Custom Wooden Furniture',
+        description: 'Bespoke hardwood dining tables, study desks, credenzas, and statement furniture tailored to architectural floor plans.',
+        image: '/images/subcategories/carpenter-custom-furniture.jpg',
+        items: [
+          'Solid Teak, Rosewood, Mahogany & Oak furniture creation',
+          'Custom dining tables, coffee tables & executive desks',
+          'Mortise-and-tenon structural craftsmanship',
+        ],
+      },
+      {
+        name: 'Wardrobes and Cupboards',
+        description: 'Floor-to-ceiling built-in wardrobes, walk-in closets, and bedroom storage configured with optimized interior hardware.',
+        image: '/images/subcategories/carpenter-wardrobes-cupboards.jpg',
+        items: [
+          'Built-in modular & solid timber wardrobe suites',
+          'Sliding & hinged shutters with soft-close mechanisms',
+          'Dedicated jewellery drawers, tie racks & internal LED strips',
+        ],
+      },
+      {
+        name: 'Kitchen Cabinets and Wooden Storage',
+        description: 'Precision wooden cabinetry, overhead cabinets, pantry units, and pull-out storage built for everyday moisture and heat resilience.',
+        image: '/images/subcategories/carpenter-kitchen-cabinets.jpg',
+        items: [
+          'Modular base & wall-hung timber kitchen cabinets',
+          'Under-cabinet recessed profile lighting channels',
+          'Moisture-treated timber carcass & drawer organizers',
+        ],
+      },
+      {
+        name: 'Wooden Doors and Door Frames',
+        description: 'Solid wood entry doors, internal flush doors, decorative architraves, and precision-fitted hardwood door jambs.',
+        image: '/images/subcategories/carpenter-doors-frames.jpg',
+        items: [
+          'Heavy solid teak main doors & designer carve-outs',
+          'Calibrated hardwood door frames (Chowkhats) & architraves',
+          'Mortise locks, concealed hinges & drop-seal installation',
+        ],
+      },
+      {
+        name: 'Wooden Partitions',
+        description: 'Architectural timber slatted dividers, privacy screens, and room dividers that balance spatial separation with light flow.',
+        image: '/images/subcategories/carpenter-wooden-partitions.jpg',
+        items: [
+          'Vertical timber slat screens & fluted room dividers',
+          'Open-shelf partition cabinets with dual-sided display',
+          'Concealed floor-to-ceiling mounting & acoustic integration',
+        ],
+      },
+      {
+        name: 'Shelves and Storage Units',
+        description: 'Custom wall-mounted floating shelves, library bookcases, living room entertainment consoles, and bespoke display units.',
+        image: '/images/subcategories/carpenter-shelves-storage.jpg',
+        items: [
+          'Heavy-duty floating solid wood wall shelves',
+          'Full-wall library shelving & study room organizers',
+          'Custom media consoles with concealed cable raceways',
+        ],
+      },
+      {
+        name: 'Wooden Paneling and Decorative Woodwork',
+        description: 'Wall cladding, fluted acoustic paneling, ceiling rafters, wooden cornices, and handcrafted geometric wood features.',
+        image: '/images/subcategories/carpenter-wooden-paneling.jpg',
+        items: [
+          'Fluted timber accent walls & veneer paneling',
+          'Exposed decorative wooden ceiling beams & rafters',
+          'Geometric wall paneling & architectural moldings',
+        ],
+      },
+      {
+        name: 'Repair and Finishing of Wooden Works',
+        description: 'Restoration of aged woodwork, joint reinforcement, realignment of doors and cabinetry, and professional wood re-finishing.',
+        image: '/images/subcategories/carpenter-repair-finishing.jpg',
+        items: [
+          'Structural joinery repairs, hinge realignment & leveling',
+          'Surface sanding, stain correction & scratch rectification',
+          'Natural oil, wax, lacquer & PU protective re-coating',
         ],
       },
     ],

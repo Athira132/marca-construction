@@ -15,6 +15,8 @@ export interface CompanyData {
     primaryRaw: string; // +919847943104
     office: string; // 9946943104
     officeRaw: string; // +919946943104
+    solarHead: string; // 9562943104
+    solarHeadRaw: string; // +919562943104
   };
   whatsapp: {
     number: string; // 919847943104
@@ -43,6 +45,8 @@ export const companyData: CompanyData = {
     primaryRaw: '+919847943104',
     office: '9946943104',
     officeRaw: '+919946943104',
+    solarHead: '9562943104',
+    solarHeadRaw: '+919562943104',
   },
   whatsapp: {
     number: '919847943104',

@@ -174,12 +174,12 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
             </div>
           </div>
 
-          {/* Minimal Quick Links to Other 5 Services */}
+          {/* Minimal Quick Links to Other Services */}
           <div className="mt-16 pt-8 border-t border-gray-200">
             <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold block mb-4">
               Other Service Categories
             </span>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {otherServices.map((other) => (
                 <Link
                   key={other.slug}

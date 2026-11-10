@@ -170,7 +170,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer (No category numbers) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#11161C] border-b border-white/10 px-4 py-4 space-y-1">
+        <div className="md:hidden bg-[#11161C] border-b border-white/10 px-4 py-4 space-y-1 max-h-[calc(100vh-4.5rem)] overflow-y-auto">
           <NavLink
             to="/"
             className={({ isActive }) =>

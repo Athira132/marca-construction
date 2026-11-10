@@ -247,9 +247,11 @@ export const ContactPage: React.FC = () => {
                       className="w-full px-3.5 py-2.5 rounded border border-gray-200 text-xs text-[#11161C] focus:outline-none focus:border-marca-green bg-white"
                     >
                       <option value="Interior Works">Interior Works</option>
+                      <option value="Roof Works">Roof Works</option>
                       <option value="Plumbing Works">Plumbing Works</option>
                       <option value="Painting Works">Painting Works</option>
                       <option value="Solar Systems">Solar Systems</option>
+                      <option value="Carpenter Works">Carpenter Works</option>
                       <option value="Custom Furniture & Epoxy Works">Custom Furniture & Epoxy Works</option>
                       <option value="Electrical Works">Electrical Works</option>
                     </select>
@@ -344,6 +346,19 @@ export const ContactPage: React.FC = () => {
                       className="text-[#11161C] font-semibold hover:text-marca-green text-sm block"
                     >
                       +91 {companyData.phone.office}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-marca-green flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-gray-400 block font-semibold text-[11px]">Solar System Operation Head</span>
+                    <a
+                      href={`tel:${companyData.phone.solarHeadRaw}`}
+                      className="text-[#11161C] font-semibold hover:text-marca-green text-sm block"
+                    >
+                      +91 {companyData.phone.solarHead}
                     </a>
                   </div>
                 </div>

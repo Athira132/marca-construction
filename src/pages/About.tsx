@@ -48,7 +48,7 @@ export const About: React.FC = () => {
                 Serving Homeowners and Businesses Across Kerala
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Marca Construction is a construction company headquartered in Moorkkanadu, Pantheerankavu, Calicut. We deliver comprehensive solutions spanning interior architecture, plumbing infrastructure, professional painting, solar power systems, custom epoxy furniture, and licensed electrical works.
+                Marca Construction is a construction company headquartered in Moorkkanadu, Pantheerankavu, Calicut. We deliver comprehensive solutions spanning interior architecture, roof and false ceiling engineering, master carpentry, plumbing infrastructure, professional painting, solar power systems, custom furniture, and licensed electrical works.
               </p>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                 Our approach emphasizes functional design suited to Kerala’s tropical climate, rigorous technical standards, and single-point accountability from planning through final handover.
