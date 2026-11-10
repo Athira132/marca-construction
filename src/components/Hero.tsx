@@ -10,6 +10,8 @@ export const Hero: React.FC = () => {
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85')`,
         }}
+        role="img"
+        aria-label="Contemporary residential villa architecture in Kerala by Marca Construction"
       >
         {/* Subtle architectural dark overlay for optimal text contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#11161C]/90 via-[#11161C]/50 to-[#11161C]/40"></div>
@@ -17,6 +19,10 @@ export const Hero: React.FC = () => {
 
       {/* Elegant Text Overlay Centered Directly Over Photograph */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-24">
+        <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-marca-gold mb-3 inline-block">
+          Residential &amp; Commercial Construction in Kerala
+        </span>
+
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-5">
           Building Spaces.
           <span className="block font-light text-gray-200 mt-1">
@@ -25,7 +31,7 @@ export const Hero: React.FC = () => {
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl text-gray-200 font-normal max-w-2xl mx-auto mb-9 leading-relaxed">
-          Thoughtful solutions for homes and businesses.
+          Professional residential and commercial construction, civil building works, and turnkey interior solutions in Calicut &amp; across Kerala.
         </p>
 
         {/* Two Clean Buttons */}

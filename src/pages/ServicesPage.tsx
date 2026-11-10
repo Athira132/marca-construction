@@ -8,8 +8,26 @@ export const ServicesPage: React.FC = () => {
   return (
     <div className="bg-[#F8F9F5] min-h-screen">
       <SEO
-        title="Services | Marca Construction"
-        description="Comprehensive architectural, structural, and engineering services delivered across Kerala by Marca Construction."
+        title="Construction & Trade Services in Kerala | MARCA CONSTRUCTION"
+        description="Explore Marca Construction's specialized divisions: interior works, roof works, carpentry, plumbing, painting, solar systems, custom furniture, and electrical works in Kerala."
+        canonicalUrl="https://www.marcaconstruction.com/services"
+        keywords="construction works, construction company in Kerala, construction company in Calicut, civil construction works, interior works in Calicut, interior works in Kerala, roof works Kerala, plumbing works Kerala, painting works Kerala, solar systems Kerala, electrical works Kerala, custom furniture Kerala, turnkey construction"
+        breadcrumbs={[
+          { name: 'Home', item: '/' },
+          { name: 'Services', item: '/services' },
+        ]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          '@id': 'https://www.marcaconstruction.com/services#webpage',
+          url: 'https://www.marcaconstruction.com/services',
+          name: 'Construction & Trade Services in Kerala',
+          description:
+            'Comprehensive architectural, structural, and engineering trade services delivered across Kerala by Marca Construction.',
+          isPartOf: {
+            '@id': 'https://www.marcaconstruction.com/#website',
+          },
+        }}
       />
 
       {/* Full-Width Photographic Hero Banner (Edge-to-Edge) */}
@@ -19,19 +37,21 @@ export const ServicesPage: React.FC = () => {
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85')`,
           }}
+          role="img"
+          aria-label="Comprehensive construction and architectural services in Kerala by Marca Construction"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-[#11161C]/95 via-[#11161C]/60 to-[#11161C]/40"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
           <span className="text-[11px] font-bold uppercase tracking-widest text-marca-gold mb-3 inline-block">
-            Our Divisions
+            Specialized Trade Divisions
           </span>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Services
+            Construction &amp; Trade Services
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-200 font-normal max-w-xl mx-auto leading-relaxed">
-            Eight dedicated trade divisions delivering high-standard execution across Kerala.
+            Eight dedicated divisions delivering residential construction, commercial fitouts, building renovation, and trade contracting across Kerala.
           </p>
         </div>
       </section>
@@ -49,12 +69,12 @@ export const ServicesPage: React.FC = () => {
                 <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
                   <img
                     src={service.heroImage}
-                    alt={service.title}
+                    alt={`${service.title} in Kerala - Marca Construction`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
                 </div>
 
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">

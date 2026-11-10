@@ -88,8 +88,26 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="bg-[#F8F9F5] min-h-screen">
       <SEO
-        title="Contact Us | Marca Construction"
-        description="Contact Marca Construction in Moorkkanadu, Pantheerankavu, Calicut, Kerala. Call 9847943104 or email marcaconstruction01@gmail.com."
+        title="Contact MARCA CONSTRUCTION | Calicut & Kerala Office"
+        description="Get in touch with Marca Construction in Moorkkanadu, Pantheerankavu, Calicut, Kerala. Call +91 9847943104 or email marcaconstruction01@gmail.com for your construction project."
+        canonicalUrl="https://www.marcaconstruction.com/contact"
+        keywords="contact Marca Construction, construction company in Calicut contact, construction company in Kerala phone, civil contractors Kozhikode contact, Pantheerankavu builders, building contractors Kerala email"
+        breadcrumbs={[
+          { name: 'Home', item: '/' },
+          { name: 'Contact Us', item: '/contact' },
+        ]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          '@id': 'https://www.marcaconstruction.com/contact#webpage',
+          url: 'https://www.marcaconstruction.com/contact',
+          name: 'Contact MARCA CONSTRUCTION',
+          description:
+            'Get in touch with Marca Construction in Moorkkanadu, Pantheerankavu, Calicut, Kerala. Call +91 9847943104 or email marcaconstruction01@gmail.com.',
+          mainEntity: {
+            '@id': 'https://www.marcaconstruction.com/#organization',
+          },
+        }}
       />
 
       {/* Full-Width Photographic Hero Banner (Edge-to-Edge) */}
@@ -99,19 +117,21 @@ export const ContactPage: React.FC = () => {
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85')`,
           }}
+          role="img"
+          aria-label="Marca Construction Calicut office contact banner"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-[#11161C]/95 via-[#11161C]/60 to-[#11161C]/40"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
           <span className="text-[11px] font-bold uppercase tracking-widest text-marca-gold mb-3 inline-block">
-            Get in Touch
+            Project Consultation
           </span>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Contact Us
+            Contact Marca Construction
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-200 font-normal max-w-md mx-auto leading-relaxed">
-            Discuss your upcoming project with our team in Calicut.
+            Discuss your residential, commercial, or renovation project with our team in Calicut.
           </p>
         </div>
       </section>
@@ -130,7 +150,7 @@ export const ContactPage: React.FC = () => {
                   Thank You, {formData.name}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
-                  Your enquiry has been received. Our team will review your project details and reach out shortly.
+                  Your enquiry has been received. Our engineering team will review your requirements and reach out promptly.
                 </p>
                 <div className="pt-3">
                   <a
@@ -151,7 +171,7 @@ export const ContactPage: React.FC = () => {
                     Project Consultation Form
                   </h2>
                   <p className="text-xs text-gray-500 mt-1">
-                    Send us your project outline and we will respond promptly.
+                    Send us your project outline and we will respond promptly with consultation details.
                   </p>
                 </div>
 
@@ -213,7 +233,7 @@ export const ContactPage: React.FC = () => {
                       htmlFor="email"
                       className="block text-[11px] font-bold uppercase tracking-wider text-gray-700"
                     >
-                      Email *
+                      Email Address *
                     </label>
                     <input
                       type="email"
@@ -252,7 +272,7 @@ export const ContactPage: React.FC = () => {
                       <option value="Painting Works">Painting Works</option>
                       <option value="Solar Systems">Solar Systems</option>
                       <option value="Carpenter Works">Carpenter Works</option>
-                      <option value="Custom Furniture & Epoxy Works">Custom Furniture & Epoxy Works</option>
+                      <option value="Custom Furniture & Epoxy Works">Custom Furniture &amp; Epoxy Works</option>
                       <option value="Electrical Works">Electrical Works</option>
                     </select>
                   </div>
@@ -270,7 +290,7 @@ export const ContactPage: React.FC = () => {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Briefly describe your project, location in Kerala, and expected timeline..."
+                    placeholder="Briefly describe your project, site location in Kerala, and expected timeline..."
                     className={`w-full px-3.5 py-2.5 rounded border text-xs text-[#11161C] focus:outline-none focus:border-marca-green ${
                       errors.message ? 'border-red-500 bg-red-50/20' : 'border-gray-200'
                     }`}
@@ -300,7 +320,7 @@ export const ContactPage: React.FC = () => {
             <div className="bg-white p-7 sm:p-8 rounded-lg border border-gray-200/80 shadow-sm space-y-6">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-marca-gold-dark font-bold block mb-1">
-                  Company Information
+                  Registered Details
                 </span>
                 <h3 className="text-xl font-bold text-[#11161C]">
                   {companyData.name}
@@ -366,7 +386,7 @@ export const ContactPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-marca-green flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-gray-400 block font-semibold text-[11px]">Email</span>
+                    <span className="text-gray-400 block font-semibold text-[11px]">Email Address</span>
                     <a
                       href={`mailto:${companyData.email}`}
                       className="text-gray-800 hover:text-marca-green font-medium block"
@@ -379,7 +399,7 @@ export const ContactPage: React.FC = () => {
                 <div className="flex items-start gap-3 pt-1 border-t border-gray-100">
                   <FileText className="w-4 h-4 text-marca-gold-dark flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-gray-400 block font-semibold text-[11px]">GST Number</span>
+                    <span className="text-gray-400 block font-semibold text-[11px]">GST Registration</span>
                     <p className="font-mono text-gray-900 font-medium">{companyData.gst}</p>
                   </div>
                 </div>
@@ -402,7 +422,7 @@ export const ContactPage: React.FC = () => {
             {/* Google Maps Location */}
             <div className="rounded-lg overflow-hidden border border-gray-200/80 bg-white shadow-sm">
               <iframe
-                title="Marca Construction Location Map"
+                title="Marca Construction Calicut Office Location on Google Maps"
                 src={companyData.googleMapsEmbedUrl}
                 className="w-full h-48 border-0"
                 loading="lazy"

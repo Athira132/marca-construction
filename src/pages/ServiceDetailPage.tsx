@@ -9,6 +9,69 @@ interface ServiceDetailPageProps {
   categorySlug?: string;
 }
 
+// Tailored SEO metadata per service category
+const serviceSeoMetadata: Record<
+  string,
+  { title: string; description: string; keywords: string }
+> = {
+  'interior-works': {
+    title: 'Interior Works in Calicut & Kerala | MARCA CONSTRUCTION',
+    description:
+      'Architectural interior works in Calicut and Kerala: premium marine plywood joinery, surface finishes, gypsum false ceilings, countertops, and hardware fittings.',
+    keywords:
+      'interior works in Calicut, interior works in Kerala, interior contractors Calicut, marine plywood joinery, gypsum false ceiling Kerala, kitchen countertops Calicut, architectural interiors Kerala',
+  },
+  'roof-works': {
+    title: 'Roof Works & Gypsum False Ceilings in Kerala | MARCA CONSTRUCTION',
+    description:
+      'Professional roof works and gypsum ceiling installation in Kerala: false ceiling designs, gypsum partitions, metal framing, and waterproof ceiling finishing.',
+    keywords:
+      'roof works in Kerala, gypsum ceiling works Calicut, false ceiling contractors Kerala, ceiling framing Kozhikode, gypsum partitions Kerala, roofing waterproofing Calicut',
+  },
+  'carpenter-works': {
+    title: 'Carpenter Works & Custom Woodwork in Kerala | MARCA CONSTRUCTION',
+    description:
+      'Master carpentry services in Kerala: custom wardrobes, designer timber doors, modular kitchen cabinets, wooden wall panelling, and bespoke woodwork.',
+    keywords:
+      'carpenter works in Kerala, carpentry contractors Calicut, custom kitchen cabinets Kerala, wooden wardrobes Kozhikode, timber doors Kerala, custom wooden furniture Calicut',
+  },
+  'plumbing-works': {
+    title: 'Plumbing Works & Sanitary Installations in Kerala | MARCA CONSTRUCTION',
+    description:
+      'Complete plumbing solutions in Kerala: CPVC/UPVC water supply piping, underground sewer lines, modern sanitary fittings, and drainage infrastructure.',
+    keywords:
+      'plumbing works Kerala, plumbing contractors Calicut, sanitary fittings Kozhikode, underground drainage Kerala, water supply piping, commercial plumbing Kerala',
+  },
+  'painting-works': {
+    title: 'Painting Works & Surface Coating in Kerala | MARCA CONSTRUCTION',
+    description:
+      'Professional painting contractors in Kerala: weather-shield exterior painting, luxury interior emulsions, PU wood finishes, and waterproofing coatings.',
+    keywords:
+      'painting works Kerala, painting contractors Calicut, exterior weather shield painting Kerala, interior painting Kozhikode, PU wood polishing, damp proofing Kerala',
+  },
+  'solar-systems': {
+    title: 'Solar Systems Installation in Kerala | MARCA CONSTRUCTION',
+    description:
+      'Clean energy solutions across Kerala: on-grid rooftop solar, off-grid battery systems, hybrid solar plants, solar water heaters, and agricultural pumps.',
+    keywords:
+      'solar systems Kerala, solar panel installation Calicut, rooftop solar Kerala, on-grid solar Kozhikode, hybrid solar systems Kerala, solar water heaters Kerala',
+  },
+  'custom-furniture-epoxy-works': {
+    title: 'Custom Furniture & Epoxy Works in Kerala | MARCA CONSTRUCTION',
+    description:
+      'Handcrafted custom furniture and artistic epoxy river tables in Kerala: live-edge dining tables, epoxy coffee tables, designer consoles, and executive desks.',
+    keywords:
+      'custom furniture Kerala, epoxy river tables Calicut, resin tables Kerala, handcrafted wooden furniture Kozhikode, bespoke dining tables, epoxy clocks',
+  },
+  'electrical-works': {
+    title: 'Electrical Works & Power Infrastructure in Kerala | MARCA CONSTRUCTION',
+    description:
+      'Licensed electrical contractors in Kerala: concealed conduit wiring, safety distribution boards, smart lighting installations, and industrial power setups.',
+    keywords:
+      'electrical works Kerala, electrical contractors Calicut, residential wiring Kozhikode, industrial electrical works Kerala, electrical distribution boards, PWD electrical contractors',
+  },
+};
+
 export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySlug }) => {
   const { slug } = useParams<{ slug: string }>();
   const activeSlug = categorySlug || slug;
@@ -23,15 +86,71 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
 
   const otherServices = servicesData.filter((s) => s.slug !== service.slug);
 
+  const seoMeta = serviceSeoMetadata[service.slug] || {
+    title: `${service.title} in Kerala | MARCA CONSTRUCTION`,
+    description: `${service.intro} Contact Marca Construction in Calicut, Kerala.`,
+    keywords: `${service.title.toLowerCase()}, construction company in Kerala, construction works Calicut, Marca Construction`,
+  };
+
   const whatsappInquiryUrl = `https://wa.me/${companyData.whatsapp.number}?text=${encodeURIComponent(
     `Hello Marca Construction, I would like to enquire about your ${service.title} services in Kerala.`
   )}`;
 
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `https://www.marcaconstruction.com/services/${service.slug}#service`,
+    name: service.title,
+    serviceType: service.title,
+    description: service.intro,
+    provider: {
+      '@id': 'https://www.marcaconstruction.com/#organization',
+    },
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Calicut',
+      },
+      {
+        '@type': 'City',
+        name: 'Kozhikode',
+      },
+      {
+        '@type': 'Place',
+        name: 'Pantheerankavu',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Kerala',
+      },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${service.title} Subdivisions`,
+      itemListElement: service.groups.map((group) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: group.name,
+          description: group.description,
+        },
+      })),
+    },
+  };
+
   return (
     <div className="bg-[#F8F9F5] min-h-screen">
       <SEO
-        title={`${service.title} | Marca Construction`}
-        description={service.intro}
+        title={seoMeta.title}
+        description={seoMeta.description}
+        canonicalUrl={`https://www.marcaconstruction.com/services/${service.slug}`}
+        keywords={seoMeta.keywords}
+        breadcrumbs={[
+          { name: 'Home', item: '/' },
+          { name: 'Services', item: '/services' },
+          { name: service.title, item: `/services/${service.slug}` },
+        ]}
+        schema={serviceSchema}
       />
 
       {/* 1. Full-Width Photographic Hero Banner (Edge-to-Edge) */}
@@ -39,6 +158,8 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url('${service.heroImage}')` }}
+          role="img"
+          aria-label={`${service.title} execution by Marca Construction in Kerala`}
         >
           {/* Subtle architectural overlay for optimal text contrast */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#11161C]/95 via-[#11161C]/60 to-[#11161C]/45"></div>
@@ -82,10 +203,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
           <div className="border-b border-gray-200 pb-4 mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
             <div>
               <span className="text-[10px] uppercase tracking-widest text-marca-gold-dark font-bold block">
-                Technical Divisions & Materials
+                Technical Divisions &amp; Materials
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#11161C] tracking-tight">
-                Subcategories & Material Specifications
+                Subcategories &amp; Material Specifications
               </h2>
             </div>
             <span className="text-xs text-gray-500">
@@ -104,8 +225,9 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
                 <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
                   <img
                     src={group.image}
-                    alt={group.name}
+                    alt={`${group.name} - ${service.title} | Marca Construction Kerala`}
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none opacity-40 group-hover:opacity-20 transition-opacity"></div>
@@ -125,7 +247,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ categorySl
                   {/* Specifications & Materials List */}
                   <div className="pt-4 border-t border-gray-100">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-2.5">
-                      Specifications & Materials
+                      Specifications &amp; Materials
                     </span>
                     <ul className="space-y-1.5">
                       {group.items.map((item, itemIdx) => (

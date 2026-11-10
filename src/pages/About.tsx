@@ -8,8 +8,26 @@ export const About: React.FC = () => {
   return (
     <div className="bg-[#F8F9F5] min-h-screen">
       <SEO
-        title="About Us | Marca Construction"
-        description="Learn about Marca Construction, a Kerala-based construction practice based in Calicut delivering residential, commercial, and trade engineering solutions."
+        title="About Us | MARCA CONSTRUCTION – Construction Company in Calicut, Kerala"
+        description="Discover Marca Construction, a premier building construction company in Calicut, Kerala specializing in residential construction, commercial works, and turnkey solutions."
+        canonicalUrl="https://www.marcaconstruction.com/about"
+        keywords="Marca Construction, construction company in Kerala, construction company in Calicut, construction company in Kozhikode, building construction, residential construction Kerala, commercial construction Calicut, civil construction works Kerala, house renovation Calicut, turnkey construction Kerala"
+        breadcrumbs={[
+          { name: 'Home', item: '/' },
+          { name: 'About Us', item: '/about' },
+        ]}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          '@id': 'https://www.marcaconstruction.com/about#webpage',
+          url: 'https://www.marcaconstruction.com/about',
+          name: 'About Marca Construction',
+          description:
+            'Discover Marca Construction, a premier building construction company in Calicut, Kerala specializing in residential construction, commercial works, and turnkey solutions.',
+          mainEntity: {
+            '@id': 'https://www.marcaconstruction.com/#organization',
+          },
+        }}
       />
 
       {/* Full-Cover Photographic Hero Banner */}
@@ -19,19 +37,21 @@ export const About: React.FC = () => {
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85')`,
           }}
+          role="img"
+          aria-label="Modern Kerala architectural construction practice - Marca Construction"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-[#11161C]/95 via-[#11161C]/60 to-[#11161C]/40"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 sm:py-20">
           <span className="text-[11px] font-bold uppercase tracking-widest text-marca-gold mb-3 inline-block">
-            Practice Profile
+            Construction Practice Profile
           </span>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-4">
             About Marca Construction
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-200 font-normal max-w-xl mx-auto leading-relaxed">
-            Constructing spaces with architectural clarity, verified materials, and disciplined execution.
+            Constructing spaces with architectural clarity, verified materials, and disciplined engineering execution across Kerala.
           </p>
         </div>
       </section>
@@ -45,20 +65,23 @@ export const About: React.FC = () => {
                 Company Overview
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#11161C] tracking-tight leading-snug">
-                Serving Homeowners and Businesses Across Kerala
+                Serving Homeowners and Businesses Across Calicut &amp; Kerala
               </h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Marca Construction is a construction company headquartered in Moorkkanadu, Pantheerankavu, Calicut. We deliver comprehensive solutions spanning interior architecture, roof and false ceiling engineering, master carpentry, plumbing infrastructure, professional painting, solar power systems, custom furniture, and licensed electrical works.
+                Marca Construction is an established building construction firm headquartered in Moorkkanadu, Pantheerankavu, Calicut (Kozhikode), Kerala. We undertake turnkey residential construction, custom home building, house renovation, building renovation, and commercial building works throughout the state.
               </p>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                Our approach emphasizes functional design suited to Kerala’s tropical climate, rigorous technical standards, and single-point accountability from planning through final handover.
+                Our multidisciplinary trade divisions encompass architectural interior works, roof works and gypsum false ceilings, master carpentry, plumbing infrastructure, weather-resistant painting, clean solar power systems, custom epoxy furniture, and licensed electrical installations.
+              </p>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                Guided by technical precision, transparent estimation, and climate-responsive engineering suited to Kerala’s tropical environment, we deliver dependable quality and single-point accountability on every project.
               </p>
             </div>
 
             {/* Official Registered Company Details */}
             <div className="pt-6 border-t border-gray-100">
               <span className="text-[11px] uppercase tracking-widest text-gray-500 font-bold block mb-4">
-                Registered Information & Contact
+                Registered Information &amp; Contact
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-gray-700">
                 <div className="space-y-1">
@@ -132,9 +155,9 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
+            <div className="pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="text-xs text-gray-500">
-                Operating across Calicut, Ernakulam, Thrissur, and all Kerala districts.
+                Operating in Calicut, Kozhikode, Pantheerankavu, and across Kerala districts.
               </span>
               <Link
                 to="/contact"

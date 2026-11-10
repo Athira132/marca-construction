@@ -9,8 +9,23 @@ export const Home: React.FC = () => {
   return (
     <div className="bg-[#F8F9F5] min-h-screen">
       <SEO
-        title="Home | Building Spaces. Creating Futures."
-        description="Marca Construction — Thoughtful solutions for homes and businesses in Kerala."
+        title="MARCA CONSTRUCTION | Residential & Commercial Construction in Kerala"
+        description="MARCA CONSTRUCTION offers professional construction solutions, building works, residential and commercial construction, and interior services in Kerala. Contact us to discuss your project."
+        canonicalUrl="https://www.marcaconstruction.com/"
+        keywords="Marca Construction, Marca Construction Kerala, construction company in Kerala, construction company in Calicut, construction company in Kozhikode, residential construction, commercial construction, building construction, civil construction works, interior works in Calicut, interior works in Kerala, home construction, house renovation, building renovation, commercial building works, construction contractors in Kerala, turnkey construction"
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          '@id': 'https://www.marcaconstruction.com/#website',
+          url: 'https://www.marcaconstruction.com/',
+          name: 'MARCA CONSTRUCTION',
+          description:
+            'MARCA CONSTRUCTION offers professional construction solutions, building works, residential and commercial construction, and interior services in Kerala.',
+          publisher: {
+            '@id': 'https://www.marcaconstruction.com/#organization',
+          },
+          inLanguage: 'en-IN',
+        }}
       />
 
       {/* 1. Full-Coverage Edge-to-Edge Hero Banner */}
@@ -23,10 +38,10 @@ export const Home: React.FC = () => {
             Kerala Construction Practice
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#11161C] tracking-tight leading-snug">
-            Thoughtful architectural execution for residences and commercial spaces.
+            Thoughtful architectural execution for residences and commercial spaces in Kerala.
           </h2>
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Based in Calicut, Marca Construction brings structural discipline, climate-conscious engineering, and craftsmanship to residential villas, commercial facilities, and government infrastructure across Kerala.
+            Headquartered in Moorkkanadu, Pantheerankavu, Calicut, Marca Construction brings structural discipline, climate-conscious civil engineering, and craftsmanship to residential villas, commercial facilities, house renovation, and infrastructure projects across Kerala.
           </p>
         </div>
       </section>
@@ -40,7 +55,7 @@ export const Home: React.FC = () => {
                 Capabilities
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#11161C] tracking-tight">
-                Our Services
+                Our Construction &amp; Trade Services
               </h2>
             </div>
             <Link
@@ -62,9 +77,10 @@ export const Home: React.FC = () => {
                 <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
                   <img
                     src={service.heroImage}
-                    alt={service.title}
+                    alt={`${service.title} in Kerala - Marca Construction`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 </div>
@@ -89,7 +105,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Minimal Contact & Enquiry Section (Replacing Portfolio Preview) */}
+      {/* 4. Minimal Contact & Enquiry Section */}
       <section className="py-20 lg:py-24 bg-white border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5">
           <span className="text-[11px] uppercase tracking-widest text-marca-gold-dark font-bold block">
@@ -98,8 +114,8 @@ export const Home: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#11161C] tracking-tight">
             Have a Project in Mind?
           </h2>
-          <p className="text-sm sm:text-base text-gray-600 max-w-md mx-auto">
-            Let's discuss your requirements.
+          <p className="text-sm sm:text-base text-gray-600 max-w-lg mx-auto">
+            Discuss your residential construction, house renovation, commercial building, or interior requirements with our team in Calicut.
           </p>
           <div className="pt-3">
             <Link

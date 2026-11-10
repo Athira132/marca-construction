@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Youtube, Facebook } from 'lucide-react';
 import { MarcaLogo } from './MarcaLogo';
 import { companyData } from '../data/company';
@@ -9,6 +10,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#11161C] text-gray-300 border-t border-white/10 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top: Branding, Office Details & Socials */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-white/10 text-center md:text-left">
           {/* Logo & Company Name */}
           <div className="space-y-2">
@@ -73,10 +75,111 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Middle: Crawlable Internal Navigation & Services Index */}
+        <div className="py-8 border-b border-white/10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 text-xs text-gray-400">
+          <div>
+            <span className="text-[10px] uppercase tracking-widest text-marca-gold font-bold block mb-3">
+              Navigation
+            </span>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/" className="hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-white transition-colors">
+                  About Marca
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  All Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="hover:text-white transition-colors">
+                  Project Gallery
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-white transition-colors">
+                  Contact &amp; Enquiry
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <span className="text-[10px] uppercase tracking-widest text-marca-gold font-bold block mb-3">
+              Construction &amp; Interiors
+            </span>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/services/interior-works" className="hover:text-white transition-colors">
+                  Interior Works
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/roof-works" className="hover:text-white transition-colors">
+                  Roof Works &amp; Ceilings
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/carpenter-works" className="hover:text-white transition-colors">
+                  Carpenter Works
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/custom-furniture-epoxy-works" className="hover:text-white transition-colors">
+                  Custom Furniture &amp; Epoxy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <span className="text-[10px] uppercase tracking-widest text-marca-gold font-bold block mb-3">
+              Trade Engineering
+            </span>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/services/plumbing-works" className="hover:text-white transition-colors">
+                  Plumbing Works
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/painting-works" className="hover:text-white transition-colors">
+                  Painting Works
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/solar-systems" className="hover:text-white transition-colors">
+                  Solar Power Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/electrical-works" className="hover:text-white transition-colors">
+                  Electrical Infrastructure
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-span-2 sm:col-span-1">
+            <span className="text-[10px] uppercase tracking-widest text-marca-gold font-bold block mb-3">
+              Service Locations
+            </span>
+            <p className="text-[11px] leading-relaxed text-gray-400">
+              Operating throughout Calicut, Kozhikode, Pantheerankavu, Malappuram, Wayanad, Kannur, and across Kerala for residential, commercial, and trade engineering projects.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom: Copyright & Legal */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-2 text-center sm:text-left">
           <p>© {currentYear} MARCA CONSTRUCTION. All rights reserved.</p>
-          <p>Pantheerankavu, Calicut, Kerala</p>
+          <p>Moorkkanadu, Pantheerankavu, Calicut, Kerala - 673019</p>
         </div>
       </div>
     </footer>
